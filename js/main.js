@@ -9,15 +9,15 @@ const showScreen = (number) => {
 
 const changeScreen = (e) => {
   if (e.altKey && e.keyCode === 39) {
-    showScreen(currentScreen++);
+    showScreen(++currentScreen);
   }
 
   if (e.altKey && e.keyCode === 37) {
-    showScreen(currentScreen--);
+    showScreen(--currentScreen);
   }
 };
 
-showScreen(0);
+showScreen(currentScreen);
 
 document.addEventListener(`keydown`, function (e) {
   changeScreen(e);
