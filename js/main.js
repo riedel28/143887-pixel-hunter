@@ -1,41 +1,46 @@
-const greeting = document.getElementById(`greeting`);
-const rules = document.getElementById(`rules`);
-const game1 = document.getElementById(`game-1`);
-const game2 = document.getElementById(`game-3`);
-const game3 = document.getElementById(`game-3`);
-const stats = document.getElementById(`stats`);
+const keys = {
+  ARROW_LEFT_KEY_CODE: 37,
+  ARROW_RIGHT_KEY_CODE: 39
+};
 
-const screens = [greeting, rules, game1, game2, game3, stats];
+const templateIds = [
+  `greeting`,
+  `rules`,
+  `game-1`,
+  `game-2`,
+  `game-3`,
+  `stats`
+];
 
-const templateIds = screens.map((id) => {
-  const ids = [];
-  ids.push(id);
-  return ids;
-});
+const templates = templateIds.map((id) => document.getElementById(id));
 
 const mainScreen = document.querySelector(`.central`);
 
 let currentScreen = 0;
 
-const isAltRight = (e) => e.altKey && e.keyCode === 39;
-const isAltLeft = (e) => e.altKey && e.keyCode === 37;
+const isAltRight = (e) => e.altKey && e.keyCode === keys.ARROW_RIGHT_KEY_CODE;
+const isAltLeft = (e) => e.altKey && e.keyCode === keys.ARROW_LEFT_KEY_CODE;
 
 const showScreen = (number) => {
-  mainScreen.innerHTML = screens[number].innerHTML;
+  mainScreen.innerHTML = templates[number].innerHTML;
 };
 
-const changeScreen = () => {
-  if (isAltRight) {
-    showScreen(++currentScreen);
+const onDocumentKeyPress = (e) => {
+  if (isAltRight(e)) {
+    if (currentScreen < templates.length - 1) {
+      showScreen(++currentScreen);
+    }
   }
 
-  if (isAltLeft) {
-    showScreen(--currentScreen);
+  if (isAltLeft(e)) {
+    if (currentScreen > 0) {
+      showScreen(--currentScreen);
+    }
   }
 };
 
 showScreen(currentScreen);
 
 document.addEventListener(`keydown`, function (e) {
-  changeScreen(e);
+  onDocumentKeyPress(e);
 });
