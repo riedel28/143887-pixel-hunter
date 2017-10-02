@@ -41,6 +41,4 @@ const onDocumentKeyPress = (e) => {
 
 showScreen(currentScreen);
 
-document.addEventListener(`keydown`, function (e) {
-  onDocumentKeyPress(e);
-});
+document.addEventListener(`keydown`, onDocumentKeyPress);
