@@ -26,16 +26,12 @@ const showScreen = (number) => {
 };
 
 const onDocumentKeyPress = (e) => {
-  if (isAltRight(e)) {
-    if (currentScreen < templates.length - 1) {
-      showScreen(++currentScreen);
-    }
+  if (isAltRight(e) && currentScreen < templates.length - 1) {
+    showScreen(++currentScreen);
   }
 
-  if (isAltLeft(e)) {
-    if (currentScreen > 0) {
-      showScreen(--currentScreen);
-    }
+  if (isAltLeft(e) && currentScreen > 0) {
+    showScreen(--currentScreen);
   }
 };
 
