@@ -1,4 +1,10 @@
-// import Intro from "./Intro";
+import Intro from "./Intro";
+import Greeting from "./Greeting";
+import Rules from "./Rules";
+import Game1 from "./Game-1";
+import Game2 from "./Game-2";
+import Game3 from "./Game-3";
+import Stats from "./Stats";
 
 import getElementFromTemplate from "./utils";
 
