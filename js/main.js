@@ -38,3 +38,11 @@ const onDocumentKeyPress = (e) => {
 showScreen(currentScreen);
 
 document.addEventListener(`keydown`, onDocumentKeyPress);
+
+const getElementFromTemplate = (markup) => {
+  const element = document.createElement(`template`);
+  element.innerHTML = markup;
+  return element;
+};
+
+const footer = getElementFromTemplate(`<footer>Футер</footer>`);

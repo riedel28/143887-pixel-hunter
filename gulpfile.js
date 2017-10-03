@@ -12,6 +12,7 @@ const minify = require('gulp-csso');
 const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const rollup = require('gulp-better-rollup');
+const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('style', function() {
   return gulp
