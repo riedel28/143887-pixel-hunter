@@ -1,3 +1,7 @@
+// import Intro from "./Intro";
+
+import getElementFromTemplate from "./utils";
+
 const keys = {
   ARROW_LEFT_KEY_CODE: 37,
   ARROW_RIGHT_KEY_CODE: 39
@@ -38,11 +42,3 @@ const onDocumentKeyPress = (e) => {
 showScreen(currentScreen);
 
 document.addEventListener(`keydown`, onDocumentKeyPress);
-
-const getElementFromTemplate = (markup) => {
-  const element = document.createElement(`template`);
-  element.innerHTML = markup;
-  return element;
-};
-
-const footer = getElementFromTemplate(`<footer>Футер</footer>`);
