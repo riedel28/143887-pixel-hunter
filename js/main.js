@@ -42,3 +42,5 @@ const onDocumentKeyPress = (e) => {
 showScreen(currentScreen);
 
 document.addEventListener(`keydown`, onDocumentKeyPress);
+
+getElementFromTemplate(`<footer>Футер</footer>`);
