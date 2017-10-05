@@ -1,8 +1,7 @@
 import getElementFromTemplate from "./utils";
 
 const Greeting = getElementFromTemplate(
-    `<template id="greeting">
-    <div class="greeting central--blur">
+    `<div class="greeting central--blur">
       <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
       <h1 class="greeting__asterisk">*</h1>
       <div class="greeting__challenge">
@@ -21,7 +20,6 @@ const Greeting = getElementFromTemplate(
         <a href="https://www.facebook.com/htmlacademy" class="social-link  social-link--fb">Фэйсбук</a>
         <a href="https://vk.com/htmlacademy" class="social-link  social-link--vk">Вконтакте</a>
       </div>
-    </footer>
-  </template>`
+    </footer>`
 );
 export default Greeting;

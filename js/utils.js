@@ -1,8 +1,7 @@
 const getElementFromTemplate = (markup) => {
-  // const element = document.createElement(`div`);
-  // element.innerHTML = markup;
-  // return element;
-  console.log(markup);
+  const element = document.createElement(`div`);
+  element.innerHTML = markup;
+  return element;
 };
 
 export default getElementFromTemplate;

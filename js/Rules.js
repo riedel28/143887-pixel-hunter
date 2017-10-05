@@ -1,8 +1,7 @@
 import getElementFromTemplate from "./utils";
 
 const Rules = getElementFromTemplate(
-    `<template id="rules">
-    <header class="header">
+    `<header class="header">
       <div class="header__back">
         <button class="back">
         <img src="img/arrow_left.svg" width="45" height="45" alt="Back">
@@ -31,7 +30,6 @@ const Rules = getElementFromTemplate(
         <a href="https://www.facebook.com/htmlacademy" class="social-link  social-link--fb">Фэйсбук</a>
         <a href="https://vk.com/htmlacademy" class="social-link  social-link--vk">Вконтакте</a>
       </div>
-    </footer>
-  </template>`
+    </footer>`
 );
 export default Rules;

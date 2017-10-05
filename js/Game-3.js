@@ -1,8 +1,7 @@
 import getElementFromTemplate from "./utils";
 
 const Game3 = getElementFromTemplate(
-    `<template id="game-3">
-    <header class="header">
+    `<header class="header">
       <div class="header__back">
         <button class="back">
         <img src="img/arrow_left.svg" width="45" height="45" alt="Back">
@@ -53,7 +52,6 @@ const Game3 = getElementFromTemplate(
         <a href="https://www.facebook.com/htmlacademy" class="social-link  social-link--fb">Фэйсбук</a>
         <a href="https://vk.com/htmlacademy" class="social-link  social-link--vk">Вконтакте</a>
       </div>
-    </footer>
-  </template>`
+    </footer>`
 );
 export default Game3;
