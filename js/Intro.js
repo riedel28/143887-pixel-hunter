@@ -1,4 +1,6 @@
 import getElementFromTemplate from "./utils";
+import renderScreen from "./renderScreen";
+import Greeting from "./Greeting";
 
 const Intro = getElementFromTemplate(
     `<div id="main" class="central__content">
@@ -18,4 +20,9 @@ const Intro = getElementFromTemplate(
       </div>
     </footer>`
 );
+
+const asterisk = Intro.querySelector(`.intro__asterisk`);
+
+asterisk.addEventListener(`click`, renderScreen(Greeting));
+
 export default Intro;
