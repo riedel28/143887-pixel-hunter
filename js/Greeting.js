@@ -28,8 +28,12 @@ const Greeting = getElementFromTemplate(
 
 const arrow = Greeting.querySelector(`.greeting__continue`);
 
-arrow.addEventListener(`click`, () => {
+const onElementClick = () => {
   renderScreen(Rules);
-});
+};
+
+arrow.addEventListener(`click`, onElementClick);
+
+arrow.removeEventListener(`click`, onElementClick);
 
 export default Greeting;

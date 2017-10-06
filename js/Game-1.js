@@ -2,7 +2,7 @@ import getElementFromTemplate from "./utils";
 
 import renderScreen from "./renderScreen";
 
-import Rules from "./Rules";
+import Greeting from "./Greeting";
 import Game2 from "./Game-2";
 
 const Game1 = getElementFromTemplate(
@@ -85,7 +85,7 @@ form.addEventListener(`click`, () => {
 });
 
 returnBack.addEventListener(`click`, () => {
-  renderScreen(Rules);
+  renderScreen(Greeting);
 });
 
 export default Game1;

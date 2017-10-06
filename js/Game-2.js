@@ -2,6 +2,7 @@ import getElementFromTemplate from "./utils";
 
 import renderScreen from "./renderScreen";
 
+import Greeting from "./Greeting";
 import Game1 from "./Game-1";
 import Game3 from "./Game-3";
 
@@ -66,7 +67,7 @@ const returnBack = Game2.querySelector(`.header__back`);
 const form = Game2.querySelector(`.game__content`);
 
 returnBack.addEventListener(`click`, () => {
-  renderScreen(Game1);
+  renderScreen(Greeting);
 });
 
 form.addEventListener(`click`, () => {
