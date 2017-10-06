@@ -23,6 +23,8 @@ const Intro = getElementFromTemplate(
 
 const asterisk = Intro.querySelector(`.intro__asterisk`);
 
-asterisk.addEventListener(`click`, renderScreen(Greeting));
+asterisk.addEventListener(`click`, () => {
+  renderScreen(Greeting);
+});
 
 export default Intro;

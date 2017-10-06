@@ -1,4 +1,7 @@
 import getElementFromTemplate from "./utils";
+import renderScreen from "./renderScreen";
+
+import Greeting from "./Greeting";
 
 const Stats = getElementFromTemplate(
     `<header class="header">
@@ -120,4 +123,11 @@ const Stats = getElementFromTemplate(
       </div>
     </footer>`
 );
+
+const returnBack = Stats.querySelector(`.header__back`);
+
+returnBack.addEventListener(`click`, () => {
+  renderScreen(Greeting);
+});
+
 export default Stats;

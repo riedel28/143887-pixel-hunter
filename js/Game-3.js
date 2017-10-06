@@ -1,4 +1,8 @@
 import getElementFromTemplate from "./utils";
+import renderScreen from "./renderScreen";
+
+import Game2 from "./Game-2";
+import Stats from "./Stats";
 
 const Game3 = getElementFromTemplate(
     `<header class="header">
@@ -54,4 +58,21 @@ const Game3 = getElementFromTemplate(
       </div>
     </footer>`
 );
+
+const returnBack = Game3.querySelector(`.header__back`);
+
+const form = Game3.querySelector(`.game__content`);
+
+form.addEventListener(`click`, () => {
+  const options = Game3.querySelectorAll(`.game__option`);
+
+  if (options.length > 0) {
+    renderScreen(Stats);
+  }
+});
+
+returnBack.addEventListener(`click`, () => {
+  renderScreen(Game2);
+});
+
 export default Game3;

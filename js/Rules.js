@@ -1,5 +1,10 @@
 import getElementFromTemplate from "./utils";
 
+import renderScreen from "./renderScreen";
+
+import Greeting from "./Greeting";
+import Game1 from "./Game-1";
+
 const Rules = getElementFromTemplate(
     `<header class="header">
       <div class="header__back">
@@ -32,4 +37,31 @@ const Rules = getElementFromTemplate(
       </div>
     </footer>`
 );
+
+const returnBack = Rules.querySelector(`.header__back`);
+const form = Rules.querySelector(`.rules__form`);
+const nameField = Rules.querySelector(`.rules__input`);
+const button = Rules.querySelector(`.rules__button`);
+
+const isEmpty = () => nameField.value === ``;
+
+const enableButton = () => {
+  return !isEmpty()
+    ? button.removeAttribute(`disabled`)
+    : button.setAttribute(`disabled`, `disabled`);
+};
+
+nameField.addEventListener(`keyup`, () => {
+  enableButton();
+});
+
+returnBack.addEventListener(`click`, () => {
+  renderScreen(Greeting);
+});
+
+form.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+  renderScreen(Game1);
+});
+
 export default Rules;

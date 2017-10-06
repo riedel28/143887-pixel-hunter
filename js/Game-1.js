@@ -1,5 +1,10 @@
 import getElementFromTemplate from "./utils";
 
+import renderScreen from "./renderScreen";
+
+import Rules from "./Rules";
+import Game2 from "./Game-2";
+
 const Game1 = getElementFromTemplate(
     `<header class="header">
       <div class="header__back">
@@ -67,4 +72,20 @@ const Game1 = getElementFromTemplate(
       </div>
     </footer>`
 );
+
+const returnBack = Game1.querySelector(`.header__back`);
+const form = Game1.querySelector(`.game__content`);
+
+form.addEventListener(`click`, () => {
+  const checkedInputs = Game1.querySelectorAll(`input:checked`);
+
+  if (checkedInputs.length > 1) {
+    renderScreen(Game2);
+  }
+});
+
+returnBack.addEventListener(`click`, () => {
+  renderScreen(Rules);
+});
+
 export default Game1;

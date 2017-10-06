@@ -1,4 +1,7 @@
 import getElementFromTemplate from "./utils";
+import renderScreen from "./renderScreen";
+
+import Rules from "./Rules";
 
 const Greeting = getElementFromTemplate(
     `<div class="greeting central--blur">
@@ -22,4 +25,11 @@ const Greeting = getElementFromTemplate(
       </div>
     </footer>`
 );
+
+const arrow = Greeting.querySelector(`.greeting__continue`);
+
+arrow.addEventListener(`click`, () => {
+  renderScreen(Rules);
+});
+
 export default Greeting;
