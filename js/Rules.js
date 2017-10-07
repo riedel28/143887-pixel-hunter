@@ -66,7 +66,15 @@ const onFormSubmit = () => {
   });
 };
 
-handlers.push({target: arrowBack, type: `submit`, handler: onFormSubmit});
+handlers.push({target: form, type: `submit`, handler: onFormSubmit});
+
+const onNameField = () => {
+  removeEventHandlers(handlers, () => {
+    enableButton();
+  });
+};
+
+handlers.push({target: nameField, type: `keyup`, handler: onNameField});
 
 nameField.addEventListener(`keyup`, enableButton);
 
