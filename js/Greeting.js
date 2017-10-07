@@ -28,13 +28,13 @@ const Greeting = getElementFromTemplate(
 
 const arrow = Greeting.querySelector(`.greeting__continue`);
 
+const handlers = [];
 const onArrowClick = () => {
-  const handlers = [];
   removeElementHandlers(handlers, () => {
     renderScreen(Rules);
   });
-  handlers.push({target: arrow, type: `click`, handler: onArrowClick});
 };
+handlers.push({target: arrow, type: `click`, handler: onArrowClick});
 
 arrow.addEventListener(`click`, onArrowClick);
 
