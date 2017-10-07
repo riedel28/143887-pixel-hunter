@@ -5,3 +5,11 @@ const getElementFromTemplate = (markup) => {
 };
 
 export default getElementFromTemplate;
+
+const removeElementHandlers = () => {
+  setTimeout(() => {
+    screen.removeEventListener(`click`, onArrowClick);
+  }, 0);
+};
+
+export removeElementHandlers;
