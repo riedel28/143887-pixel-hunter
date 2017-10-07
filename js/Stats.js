@@ -1,4 +1,4 @@
-import getElementFromTemplate from "./utils";
+import {getElementFromTemplate} from "./utils";
 import renderScreen from "./renderScreen";
 
 import Greeting from "./Greeting";

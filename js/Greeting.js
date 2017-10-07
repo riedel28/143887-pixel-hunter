@@ -1,6 +1,5 @@
-import getElementFromTemplate from "./utils";
 import renderScreen from "./renderScreen";
-import removeElementHandlers from "./utils";
+import {getElementFromTemplate, removeElementHandlers} from "./utils";
 
 import Rules from "./Rules";
 
@@ -30,8 +29,10 @@ const Greeting = getElementFromTemplate(
 const arrow = Greeting.querySelector(`.greeting__continue`);
 
 const onArrowClick = () => {
-  removeElementHandlers();
-  renderScreen(Rules);
+  removeElementHandlers(
+      [{target: arrow, type: `click`, handler: onArrowClick}],
+      renderScreen(Rules)
+  );
 };
 
 arrow.addEventListener(`click`, onArrowClick);

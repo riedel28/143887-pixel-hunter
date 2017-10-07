@@ -1,4 +1,4 @@
-import getElementFromTemplate from "./utils";
+import {getElementFromTemplate, removeElementHandlers} from "./utils";
 
 import renderScreen from "./renderScreen";
 

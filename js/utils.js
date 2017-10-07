@@ -4,21 +4,13 @@ const getElementFromTemplate = (markup) => {
   return element;
 };
 
-export default getElementFromTemplate;
+export {getElementFromTemplate};
 
-const removeElementHandlers = () => {
-  // eventListeners.map((eventListener) => {
-  //   setTimeout(() => {
-  //     screen.removeEventListener(`click`, onArrowClick);
-  //   }, 0);
-  // });
-  // const a = functionsArray.map((function) => {
-  //   return setTimeout(() => {
-  //      screen.removeEventListener(`click`, function);
-  //   }, 0);
-  // });
-
-  console.log(`ok`);
+const removeElementHandlers = (handlers, renderFunction) => {
+  handlers.forEach((handler) => {
+    handler.target.removeEventListener(handler.type, handler.handler);
+  });
+  renderFunction();
 };
 
 export {removeElementHandlers};

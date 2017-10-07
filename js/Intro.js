@@ -1,4 +1,4 @@
-import getElementFromTemplate from "./utils";
+import {getElementFromTemplate, removeElementHandlers} from "./utils";
 import renderScreen from "./renderScreen";
 import Greeting from "./Greeting";
 
@@ -24,7 +24,12 @@ const Intro = getElementFromTemplate(
 const asterisk = Intro.querySelector(`.intro__asterisk`);
 
 asterisk.addEventListener(`click`, () => {
-  renderScreen(Greeting);
+  removeElementHandlers(
+      [{target: asterisk, type: `click`, handler: onArrowClick}],
+      () => {
+        renderScreen(Greeting);
+      }
+  );
 });
 
 export default Intro;
