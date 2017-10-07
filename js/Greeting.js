@@ -1,5 +1,5 @@
 import renderScreen from "./renderScreen";
-import {getElementFromTemplate, removeElementHandlers} from "./utils";
+import {getElementFromTemplate, removeEventHandlers} from "./utils";
 
 import Rules from "./Rules";
 
@@ -30,7 +30,7 @@ const arrow = Greeting.querySelector(`.greeting__continue`);
 
 const handlers = [];
 const onArrowClick = () => {
-  removeElementHandlers(handlers, () => {
+  removeEventHandlers(handlers, () => {
     renderScreen(Rules);
   });
 };

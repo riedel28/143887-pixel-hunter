@@ -1,4 +1,4 @@
-import {getElementFromTemplate, removeElementHandlers} from "./utils";
+import {getElementFromTemplate, removeEventHandlers} from "./utils";
 import renderScreen from "./renderScreen";
 import Greeting from "./Greeting";
 
@@ -25,7 +25,7 @@ const asterisk = Intro.querySelector(`.intro__asterisk`);
 
 const handlers = [];
 const onAsteriskClick = () => {
-  removeElementHandlers(handlers, () => {
+  removeEventHandlers(handlers, () => {
     renderScreen(Greeting);
   });
 };

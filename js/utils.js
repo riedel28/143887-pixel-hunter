@@ -6,11 +6,11 @@ const getElementFromTemplate = (markup) => {
 
 export {getElementFromTemplate};
 
-const removeElementHandlers = (handlers, renderFunction) => {
+const removeEventHandlers = (handlers, renderFunction) => {
   handlers.forEach((handler) => {
     handler.target.removeEventListener(handler.type, handler.handler);
   });
   renderFunction();
 };
 
-export {removeElementHandlers};
+export {removeEventHandlers};
