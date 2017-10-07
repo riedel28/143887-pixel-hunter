@@ -1,6 +1,8 @@
-import {getElementFromTemplate, removeEventHandlers} from "./utils";
-
-import renderScreen from "./renderScreen";
+import {
+  getElementFromTemplate,
+  removeEventHandlers,
+  renderScreen
+} from "./utils";
 
 import Greeting from "./Greeting";
 import Game1 from "./Game-1";
@@ -53,12 +55,11 @@ const enableButton = () => {
 
 const handlers = [];
 
-const onArrowBack = () => {
+const onArrowBackClick = () => {
   removeEventHandlers(handlers, () => {
     renderScreen(Greeting);
   });
 };
-handlers.push({target: arrowBack, type: `click`, handler: onArrowBack});
 
 const onFormSubmit = () => {
   removeEventHandlers(handlers, () => {
@@ -66,20 +67,18 @@ const onFormSubmit = () => {
   });
 };
 
-handlers.push({target: form, type: `submit`, handler: onFormSubmit});
-
 const onNameField = () => {
   removeEventHandlers(handlers, () => {
     enableButton();
   });
 };
 
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
+handlers.push({target: form, type: `submit`, handler: onFormSubmit});
 handlers.push({target: nameField, type: `keyup`, handler: onNameField});
 
+arrowBack.addEventListener(`click`, onArrowBackClick);
 nameField.addEventListener(`keyup`, enableButton);
-
 form.addEventListener(`submit`, onFormSubmit);
-
-arrowBack.addEventListener(`click`, onArrowBack);
 
 export default Rules;

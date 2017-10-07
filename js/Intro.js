@@ -1,5 +1,9 @@
-import {getElementFromTemplate, removeEventHandlers} from "./utils";
-import renderScreen from "./renderScreen";
+import {
+  getElementFromTemplate,
+  removeEventHandlers,
+  renderScreen
+} from "./utils";
+
 import Greeting from "./Greeting";
 
 const Intro = getElementFromTemplate(

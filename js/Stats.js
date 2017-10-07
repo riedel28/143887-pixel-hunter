@@ -1,5 +1,8 @@
-import {getElementFromTemplate} from "./utils";
-import renderScreen from "./renderScreen";
+import {
+  getElementFromTemplate,
+  removeEventHandlers,
+  renderScreen
+} from "./utils";
 
 import Greeting from "./Greeting";
 

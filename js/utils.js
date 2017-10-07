@@ -14,3 +14,12 @@ const removeEventHandlers = (handlers, renderFunction) => {
 };
 
 export {removeEventHandlers};
+
+const mainScreen = document.querySelector(`.central`);
+
+const renderScreen = (screen) => {
+  mainScreen.innerHTML = ``;
+  mainScreen.appendChild(screen);
+};
+
+export {renderScreen};

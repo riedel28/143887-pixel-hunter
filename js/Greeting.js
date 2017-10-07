@@ -1,5 +1,8 @@
-import renderScreen from "./renderScreen";
-import {getElementFromTemplate, removeEventHandlers} from "./utils";
+import {
+  getElementFromTemplate,
+  removeEventHandlers,
+  renderScreen
+} from "./utils";
 
 import Rules from "./Rules";
 
