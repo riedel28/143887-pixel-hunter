@@ -23,13 +23,15 @@ const Intro = getElementFromTemplate(
 
 const asterisk = Intro.querySelector(`.intro__asterisk`);
 
-asterisk.addEventListener(`click`, () => {
-  removeElementHandlers(
-      [{target: asterisk, type: `click`, handler: onArrowClick}],
-      () => {
-        renderScreen(Greeting);
-      }
-  );
-});
+const handlers = [];
+const onAsteriskClick = () => {
+  removeElementHandlers(handlers, () => {
+    renderScreen(Greeting);
+  });
+};
+
+handlers.push({target: asterisk, type: `click`, handler: onAsteriskClick});
+
+asterisk.addEventListener(`click`, onAsteriskClick);
 
 export default Intro;
