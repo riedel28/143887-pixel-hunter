@@ -62,20 +62,29 @@ const Game3 = getElementFromTemplate(
     </footer>`
 );
 
-const returnBack = Game3.querySelector(`.header__back`);
-
+const arrowBack = Game3.querySelector(`.header__back`);
 const form = Game3.querySelector(`.game__content`);
 
-form.addEventListener(`click`, () => {
+const handlers = [];
+const onArrowBackClick = () => {
+  removeEventHandlers(handlers, () => {
+    renderScreen(Greeting);
+  });
+};
+
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
+
+const onFormClick = () => {
   const options = Game3.querySelectorAll(`.game__option`);
 
   if (options.length > 0) {
     renderScreen(Stats);
   }
-});
+};
 
-returnBack.addEventListener(`click`, () => {
-  renderScreen(Greeting);
-});
+handlers.push({target: form, type: `click`, handler: onFormClick});
+
+arrowBack.addEventListener(`click`, onArrowBackClick);
+form.addEventListener(`click`, onFormClick);
 
 export default Game3;

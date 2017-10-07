@@ -75,19 +75,29 @@ const Game1 = getElementFromTemplate(
     </footer>`
 );
 
-const returnBack = Game1.querySelector(`.header__back`);
+const arrowBack = Game1.querySelector(`.header__back`);
 const form = Game1.querySelector(`.game__content`);
 
-form.addEventListener(`click`, () => {
-  const checkedInputs = Game1.querySelectorAll(`input:checked`);
+const handlers = [];
 
+const onArrowBackClick = () => {
+  removeEventHandlers(handlers, () => {
+    renderScreen(Greeting);
+  });
+};
+
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
+
+const onFormClick = () => {
+  const checkedInputs = Game1.querySelectorAll(`input:checked`);
   if (checkedInputs.length > 1) {
     renderScreen(Game2);
   }
-});
+};
 
-returnBack.addEventListener(`click`, () => {
-  renderScreen(Greeting);
-});
+handlers.push({target: form, type: `click`, handler: onFormClick});
+
+form.addEventListener(`click`, onFormClick);
+arrowBack.addEventListener(`click`, onArrowBackClick);
 
 export default Game1;

@@ -5,7 +5,6 @@ import {
 } from "./utils";
 
 import Greeting from "./Greeting";
-// import Game1 from "./Game-1";
 import Game3 from "./Game-3";
 
 const Game2 = getElementFromTemplate(
@@ -65,19 +64,29 @@ const Game2 = getElementFromTemplate(
     </footer>`
 );
 
-const returnBack = Game2.querySelector(`.header__back`);
+const arrowBack = Game2.querySelector(`.header__back`);
 const form = Game2.querySelector(`.game__content`);
 
-returnBack.addEventListener(`click`, () => {
-  renderScreen(Greeting);
-});
+const handlers = [];
 
-form.addEventListener(`click`, () => {
+const onArrowBackClick = () => {
+  removeEventHandlers(handlers, () => {
+    renderScreen(Greeting);
+  });
+};
+
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
+
+const onFormClick = () => {
   const checkedInputs = Game2.querySelectorAll(`input:checked`);
-
   if (checkedInputs.length > 0) {
     renderScreen(Game3);
   }
-});
+};
+
+handlers.push({target: form, type: `click`, handler: onFormClick});
+
+arrowBack.addEventListener(`click`, onArrowBackClick);
+form.addEventListener(`click`, onFormClick);
 
 export default Game2;

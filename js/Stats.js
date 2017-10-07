@@ -127,10 +127,18 @@ const Stats = getElementFromTemplate(
     </footer>`
 );
 
-const returnBack = Stats.querySelector(`.header__back`);
+const arrowBack = Stats.querySelector(`.header__back`);
 
-returnBack.addEventListener(`click`, () => {
-  renderScreen(Greeting);
-});
+const handlers = [];
+
+const onArrowBackClick = () => {
+  removeEventHandlers(handlers, () => {
+    renderScreen(Greeting);
+  });
+};
+
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
+
+arrowBack.addEventListener(`click`, onArrowBackClick);
 
 export default Stats;
