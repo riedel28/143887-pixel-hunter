@@ -12,6 +12,12 @@ const removeElementHandlers = () => {
   //     screen.removeEventListener(`click`, onArrowClick);
   //   }, 0);
   // });
+  // const a = functionsArray.map((function) => {
+  //   return setTimeout(() => {
+  //      screen.removeEventListener(`click`, function);
+  //   }, 0);
+  // });
+
   console.log(`ok`);
 };
 
