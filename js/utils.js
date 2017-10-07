@@ -7,9 +7,12 @@ const getElementFromTemplate = (markup) => {
 export default getElementFromTemplate;
 
 const removeElementHandlers = () => {
-  setTimeout(() => {
-    screen.removeEventListener(`click`, onArrowClick);
-  }, 0);
+  // eventListeners.map((eventListener) => {
+  //   setTimeout(() => {
+  //     screen.removeEventListener(`click`, onArrowClick);
+  //   }, 0);
+  // });
+  console.log(`ok`);
 };
 
-export removeElementHandlers;
+export {removeElementHandlers};

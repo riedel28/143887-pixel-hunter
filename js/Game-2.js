@@ -3,7 +3,7 @@ import getElementFromTemplate from "./utils";
 import renderScreen from "./renderScreen";
 
 import Greeting from "./Greeting";
-import Game1 from "./Game-1";
+// import Game1 from "./Game-1";
 import Game3 from "./Game-3";
 
 const Game2 = getElementFromTemplate(
