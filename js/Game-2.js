@@ -75,8 +75,6 @@ const onArrowBackClick = () => {
   });
 };
 
-handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
-
 const onFormClick = () => {
   const checkedInputs = Game2.querySelectorAll(`input:checked`);
   if (checkedInputs.length > 0) {
@@ -84,6 +82,7 @@ const onFormClick = () => {
   }
 };
 
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 handlers.push({target: form, type: `click`, handler: onFormClick});
 
 arrowBack.addEventListener(`click`, onArrowBackClick);

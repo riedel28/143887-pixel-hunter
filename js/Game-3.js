@@ -72,8 +72,6 @@ const onArrowBackClick = () => {
   });
 };
 
-handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
-
 const onFormClick = () => {
   const options = Game3.querySelectorAll(`.game__option`);
 
@@ -82,6 +80,7 @@ const onFormClick = () => {
   }
 };
 
+handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 handlers.push({target: form, type: `click`, handler: onFormClick});
 
 arrowBack.addEventListener(`click`, onArrowBackClick);

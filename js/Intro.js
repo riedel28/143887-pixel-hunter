@@ -28,6 +28,7 @@ const Intro = getElementFromTemplate(
 const asterisk = Intro.querySelector(`.intro__asterisk`);
 
 const handlers = [];
+
 const onAsteriskClick = () => {
   removeEventHandlers(handlers, () => {
     renderScreen(Greeting);
