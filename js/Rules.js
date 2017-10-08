@@ -77,8 +77,9 @@ handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 handlers.push({target: form, type: `submit`, handler: onFormSubmit});
 handlers.push({target: nameField, type: `keyup`, handler: onNameField});
 
-arrowBack.addEventListener(`click`, onArrowBackClick);
-nameField.addEventListener(`keyup`, enableButton);
-form.addEventListener(`submit`, onFormSubmit);
-
-export default Rules;
+export default () => {
+  arrowBack.addEventListener(`click`, onArrowBackClick);
+  nameField.addEventListener(`keyup`, enableButton);
+  form.addEventListener(`submit`, onFormSubmit);
+  return Rules;
+};

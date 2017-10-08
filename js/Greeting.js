@@ -34,7 +34,7 @@ const arrow = Greeting.querySelector(`.greeting__continue`);
 const handlers = [];
 const onArrowClick = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Rules);
+    renderScreen(Rules());
   });
 };
 handlers.push({target: arrow, type: `click`, handler: onArrowClick});
