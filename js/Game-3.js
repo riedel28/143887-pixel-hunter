@@ -74,9 +74,10 @@ const onArrowBackClick = () => {
 
 const onFormClick = () => {
   const options = Game3.querySelectorAll(`.game__option`);
-
   if (options.length > 0) {
-    renderScreen(Stats);
+    removeEventHandlers(handlers, () => {
+      renderScreen(Stats);
+    });
   }
 };
 

@@ -78,7 +78,9 @@ const onArrowBackClick = () => {
 const onFormClick = () => {
   const checkedInputs = Game2.querySelectorAll(`input:checked`);
   if (checkedInputs.length > 0) {
-    renderScreen(Game3);
+    removeEventHandlers(handlers, () => {
+      renderScreen(Game3);
+    });
   }
 };
 
