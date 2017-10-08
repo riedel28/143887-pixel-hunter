@@ -4,10 +4,10 @@ import {
   renderScreen
 } from "./utils";
 
-import Greeting from "./Greeting";
-import Game3 from "./Game-3";
+import greeting from "./greeting";
+import game3 from "./game-3";
 
-const Game2 = getElementFromTemplate(
+const game2 = getElementFromTemplate(
     `<header class="header">
       <div class="header__back">
         <button class="back">
@@ -64,22 +64,22 @@ const Game2 = getElementFromTemplate(
     </footer>`
 );
 
-const arrowBack = Game2.querySelector(`.header__back`);
-const form = Game2.querySelector(`.game__content`);
+const arrowBack = game2.querySelector(`.header__back`);
+const form = game2.querySelector(`.game__content`);
 
 const handlers = [];
 
 const onArrowBackClick = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Greeting);
+    renderScreen(greeting());
   });
 };
 
 const onFormClick = () => {
-  const checkedInputs = Game2.querySelectorAll(`input:checked`);
+  const checkedInputs = game2.querySelectorAll(`input:checked`);
   if (checkedInputs.length > 0) {
     removeEventHandlers(handlers, () => {
-      renderScreen(Game3);
+      renderScreen(game3());
     });
   }
 };
@@ -87,7 +87,8 @@ const onFormClick = () => {
 handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 handlers.push({target: form, type: `click`, handler: onFormClick});
 
-arrowBack.addEventListener(`click`, onArrowBackClick);
-form.addEventListener(`click`, onFormClick);
-
-export default Game2;
+export default () => {
+  arrowBack.addEventListener(`click`, onArrowBackClick);
+  form.addEventListener(`click`, onFormClick);
+  return game2;
+};

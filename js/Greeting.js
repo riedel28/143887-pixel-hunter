@@ -4,9 +4,9 @@ import {
   renderScreen
 } from "./utils";
 
-import Rules from "./Rules";
+import rules from "./rules";
 
-const Greeting = getElementFromTemplate(
+const greeting = getElementFromTemplate(
     `<div class="greeting central--blur">
       <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
       <h1 class="greeting__asterisk">*</h1>
@@ -29,16 +29,17 @@ const Greeting = getElementFromTemplate(
     </footer>`
 );
 
-const arrow = Greeting.querySelector(`.greeting__continue`);
+const arrow = greeting.querySelector(`.greeting__continue`);
 
 const handlers = [];
 const onArrowClick = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Rules());
+    renderScreen(rules());
   });
 };
 handlers.push({target: arrow, type: `click`, handler: onArrowClick});
 
-arrow.addEventListener(`click`, onArrowClick);
-
-export default Greeting;
+export default () => {
+  arrow.addEventListener(`click`, onArrowClick);
+  return greeting;
+};

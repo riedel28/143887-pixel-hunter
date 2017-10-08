@@ -4,9 +4,9 @@ import {
   renderScreen
 } from "./utils";
 
-import Greeting from "./Greeting";
+import greeting from "./greeting";
 
-const Intro = getElementFromTemplate(
+const intro = getElementFromTemplate(
     `<div id="main" class="central__content">
       <div id="intro" class="intro">
         <h1 class="intro__asterisk">*</h1>
@@ -25,18 +25,19 @@ const Intro = getElementFromTemplate(
     </footer>`
 );
 
-const asterisk = Intro.querySelector(`.intro__asterisk`);
+const asterisk = intro.querySelector(`.intro__asterisk`);
 
 const handlers = [];
 
 const onAsteriskClick = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Greeting);
+    renderScreen(greeting());
   });
 };
 
 handlers.push({target: asterisk, type: `click`, handler: onAsteriskClick});
 
-asterisk.addEventListener(`click`, onAsteriskClick);
-
-export default Intro;
+export default () => {
+  asterisk.addEventListener(`click`, onAsteriskClick);
+  return intro;
+};

@@ -1,8 +1,8 @@
 import {renderScreen} from "./utils";
 
-import Intro from "./Intro";
+import intro from "./intro";
 
-renderScreen(Intro);
+renderScreen(intro());
 // import Greeting from "./Greeting";
 // import Rules from "./Rules";
 // import Game1 from "./Game-1";

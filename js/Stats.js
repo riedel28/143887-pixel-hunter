@@ -4,9 +4,9 @@ import {
   renderScreen
 } from "./utils";
 
-import Greeting from "./Greeting";
+import greeting from "./greeting";
 
-const Stats = getElementFromTemplate(
+const stats = getElementFromTemplate(
     `<header class="header">
       <div class="header__back">
         <button class="back">
@@ -127,18 +127,19 @@ const Stats = getElementFromTemplate(
     </footer>`
 );
 
-const arrowBack = Stats.querySelector(`.header__back`);
+const arrowBack = stats.querySelector(`.header__back`);
 
 const handlers = [];
 
 const onArrowBackClick = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Greeting);
+    renderScreen(greeting());
   });
 };
 
 handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 
-arrowBack.addEventListener(`click`, onArrowBackClick);
-
-export default Stats;
+export default () => {
+  arrowBack.addEventListener(`click`, onArrowBackClick);
+  return stats;
+};

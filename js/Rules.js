@@ -4,10 +4,10 @@ import {
   renderScreen
 } from "./utils";
 
-import Greeting from "./Greeting";
-import Game1 from "./Game-1";
+import greeting from "./greeting";
+import game1 from "./game-1";
 
-const Rules = getElementFromTemplate(
+const rules = getElementFromTemplate(
     `<header class="header">
       <div class="header__back">
         <button class="back">
@@ -40,10 +40,10 @@ const Rules = getElementFromTemplate(
     </footer>`
 );
 
-const arrowBack = Rules.querySelector(`.header__back`);
-const form = Rules.querySelector(`.rules__form`);
-const nameField = Rules.querySelector(`.rules__input`);
-const button = Rules.querySelector(`.rules__button`);
+const arrowBack = rules.querySelector(`.header__back`);
+const form = rules.querySelector(`.rules__form`);
+const nameField = rules.querySelector(`.rules__input`);
+const button = rules.querySelector(`.rules__button`);
 
 const isEmpty = () => nameField.value === ``;
 
@@ -57,13 +57,13 @@ const handlers = [];
 
 const onArrowBackClick = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Greeting);
+    renderScreen(greeting());
   });
 };
 
 const onFormSubmit = () => {
   removeEventHandlers(handlers, () => {
-    renderScreen(Game1);
+    renderScreen(game1());
   });
 };
 
@@ -81,5 +81,5 @@ export default () => {
   arrowBack.addEventListener(`click`, onArrowBackClick);
   nameField.addEventListener(`keyup`, enableButton);
   form.addEventListener(`submit`, onFormSubmit);
-  return Rules;
+  return rules;
 };
