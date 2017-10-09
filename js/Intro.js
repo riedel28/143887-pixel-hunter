@@ -4,7 +4,7 @@ import {
   renderScreen
 } from "./utils";
 
-import greeting from "./greeting";
+import greeting from "./Greeting";
 
 const intro = getElementFromTemplate(
     `<div id="main" class="central__content">

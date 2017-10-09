@@ -4,8 +4,8 @@ import {
   renderScreen
 } from "./utils";
 
-import greeting from "./greeting";
-import game1 from "./game-1";
+import greeting from "./Greeting";
+import game1 from "./Game-1";
 
 const rules = getElementFromTemplate(
     `<header class="header">

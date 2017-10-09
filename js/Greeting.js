@@ -4,7 +4,7 @@ import {
   renderScreen
 } from "./utils";
 
-import rules from "./rules";
+import rules from "./Rules";
 
 const greeting = getElementFromTemplate(
     `<div class="greeting central--blur">
