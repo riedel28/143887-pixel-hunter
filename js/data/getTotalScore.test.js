@@ -99,4 +99,46 @@ describe(`Count correct answers`, () => {
         300
     );
   });
+
+  it(`should return 0`, () => {
+    assert.equal(
+        getTotalScore(
+            [
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31},
+              {success: false, time: 31}
+            ],
+            0
+        ),
+        0
+    );
+  });
+
+  it(`should return 500`, () => {
+    assert.equal(
+        getTotalScore(
+            [
+              {success: false, time: 20},
+              {success: true, time: 10},
+              {success: false, time: 2},
+              {success: true, time: 31},
+              {success: false, time: 20},
+              {success: true, time: 15},
+              {success: false, time: 5},
+              {success: true, time: 22},
+              {success: false, time: 22},
+              {success: true, time: 17}
+            ],
+            2
+        ),
+        500
+    );
+  });
 });

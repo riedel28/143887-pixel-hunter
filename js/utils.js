@@ -38,9 +38,13 @@ const getPointsFromAnswer = (answer) => {
   // } else {
   //   return 0;
   // }
-  const {time} = answer;
+  const {time, success} = answer;
 
-  if (time > 0 && time <= 10) {
+  if (success === false) {
+    return 0;
+  }
+
+  if (time > 0 && time <= 10 && success === true) {
     return 150;
   } else if (time > 10 && time <= 20) {
     return 100;
