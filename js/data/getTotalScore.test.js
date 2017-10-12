@@ -6,9 +6,9 @@ describe(`Count correct answers`, () => {
     assert.equal(
         getTotalScore(
             [
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17}
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17}
             ],
             3
         ),
@@ -20,16 +20,16 @@ describe(`Count correct answers`, () => {
     assert.equal(
         getTotalScore(
             [
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17}
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17},
+              {success: true, time: 17}
             ],
             3
         ),
@@ -41,41 +41,41 @@ describe(`Count correct answers`, () => {
     assert.equal(
         getTotalScore(
             [
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `fast`, time: 17},
-              {type: `fast`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `ok`, time: 17}
+              {success: true, time: 17},
+              {success: true, time: 18},
+              {success: true, time: 12},
+              {success: true, time: 11},
+              {success: true, time: 15},
+              {success: true, time: 16},
+              {success: true, time: 13},
+              {success: true, time: 31},
+              {success: true, time: 24},
+              {success: true, time: 1}
             ],
-            1
+            2
         ),
         1000
     );
   });
 
-  it(`should return 550`, () => {
+  it(`should return 1550`, () => {
     assert.equal(
         getTotalScore(
             [
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `slow`, time: 17}
+              {success: true, time: 1},
+              {success: true, time: 2},
+              {success: true, time: 3},
+              {success: true, time: 4},
+              {success: true, time: 5},
+              {success: true, time: 6},
+              {success: true, time: 7},
+              {success: true, time: 8},
+              {success: true, time: 9},
+              {success: true, time: 10}
             ],
             1
         ),
-        550
+        1550
     );
   });
 
@@ -83,16 +83,16 @@ describe(`Count correct answers`, () => {
     assert.equal(
         getTotalScore(
             [
-              {type: `incorrect`, time: 17},
-              {type: `incorrect`, time: 17},
-              {type: `incorrect`, time: 17},
-              {type: `incorrect`, time: 17},
-              {type: `incorrect`, time: 17},
-              {type: `incorrect`, time: 17},
-              {type: `fast`, time: 17},
-              {type: `ok`, time: 17},
-              {type: `slow`, time: 17},
-              {type: `incorrect`, time: 17}
+              {success: true, time: 31},
+              {success: true, time: 32},
+              {success: true, time: 33},
+              {success: true, time: 60},
+              {success: true, time: 42},
+              {success: true, time: 100},
+              {success: true, time: 1000},
+              {success: true, time: 11},
+              {success: true, time: 12},
+              {success: true, time: 20}
             ],
             0
         ),

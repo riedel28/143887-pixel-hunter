@@ -29,11 +29,22 @@ const getPointsFromAnswer = (answer) => {
   // const slowAnswer = 50;
   // const fastAnswer = 150;
 
-  if (answer.type === `ok`) {
-    return 100;
-  } else if (answer.type === `fast`) {
+  // if (answer.type === `ok`) {
+  //   return 100;
+  // } else if (answer.type === `fast`) {
+  //   return 150;
+  // } else if (answer.type === `slow`) {
+  //   return 50;
+  // } else {
+  //   return 0;
+  // }
+  const {time} = answer;
+
+  if (time > 0 && time <= 10) {
     return 150;
-  } else if (answer.type === `slow`) {
+  } else if (time > 10 && time <= 20) {
+    return 100;
+  } else if (time > 20 && time <= 30) {
     return 50;
   } else {
     return 0;
@@ -61,15 +72,6 @@ const getTotalScore = (answers, lives) => {
 export {getTotalScore};
 
 const getTime = (time) => {
-  // if (time >= 0 && time < 10) {
-  //   return `fast`;
-  // } else if (time >= 10 && time <= 20) {
-  //   return `ok`;
-  // } else if (time > 20 && time <= 30) {
-  //   return `slow`;
-  // } else {
-  //   return `error`;
-  // }
   if (time === 0) {
     return `Время истекло`;
   }
