@@ -37,7 +37,7 @@ describe(`Count correct answers`, () => {
     );
   });
 
-  it(`should return -1 if less than 10 questions answered`, () => {
+  it(`should return 100`, () => {
     assert.equal(
         getTotalScore(
             [
