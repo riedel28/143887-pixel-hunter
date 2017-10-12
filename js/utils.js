@@ -25,26 +25,13 @@ const renderScreen = (screen) => {
 export {renderScreen};
 
 const getPointsFromAnswer = (answer) => {
-  // const correctAnswer = 100;
-  // const slowAnswer = 50;
-  // const fastAnswer = 150;
-
-  // if (answer.type === `ok`) {
-  //   return 100;
-  // } else if (answer.type === `fast`) {
-  //   return 150;
-  // } else if (answer.type === `slow`) {
-  //   return 50;
-  // } else {
-  //   return 0;
-  // }
   const {time, success} = answer;
 
   if (success === false) {
     return 0;
   }
 
-  if (time > 0 && time <= 10 && success === true) {
+  if (time > 0 && time <= 10) {
     return 150;
   } else if (time > 10 && time <= 20) {
     return 100;
@@ -54,8 +41,6 @@ const getPointsFromAnswer = (answer) => {
     return 0;
   }
 };
-
-export {getPointsFromAnswer};
 
 const getTotalScore = (answers, lives) => {
   if (answers.length < 10) {
@@ -75,16 +60,16 @@ const getTotalScore = (answers, lives) => {
 
 export {getTotalScore};
 
-const getTime = (time) => {
-  if (time === 0) {
-    return `Время истекло`;
-  }
-
+const getTimer = (timer) => {
   return {
+    timer,
     tick() {
-      return getTime(time - 1);
+      if (this.timer > 0) {
+        return --this.timer;
+      }
+      return 0;
     }
   };
 };
 
-export {getTime};
+export {getTimer};
