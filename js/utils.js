@@ -68,6 +68,9 @@ const getTimer = (timer) => {
         return --this.timer;
       }
       return 0;
+    },
+    getCurrentTimer() {
+      return this.timer;
     }
   };
 };
