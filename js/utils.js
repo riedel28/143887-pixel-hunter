@@ -24,23 +24,23 @@ const renderScreen = (screen) => {
 
 export {renderScreen};
 
-const isAnswerCorrect = (answer) => {
+const getPointsFromAnswer = (answer) => {
   // const correctAnswer = 100;
   // const slowAnswer = 50;
   // const fastAnswer = 150;
 
-  if (answer === `correct`) {
+  if (answer.type === `ok`) {
     return 100;
-  } else if (answer === `fast`) {
+  } else if (answer.type === `fast`) {
     return 150;
-  } else if (answer === `slow`) {
+  } else if (answer.type === `slow`) {
     return 50;
   } else {
     return 0;
   }
 };
 
-export {isAnswerCorrect};
+export {getPointsFromAnswer};
 
 const getTotalScore = (answers, lives) => {
   if (answers.length < 10) {
@@ -50,7 +50,7 @@ const getTotalScore = (answers, lives) => {
   let totalScore = 0;
 
   answers.forEach((answer) => {
-    isAnswerCorrect(answer);
+    totalScore += getPointsFromAnswer(answer);
   });
 
   totalScore += lives * 50;
