@@ -1,7 +1,7 @@
 import assert from "assert";
 import {getTimer} from "./../utils";
 
-describe(`test`, () => {
+describe(`Check timer decrement`, () => {
   it(`should return 0`, () => {
     const timer = getTimer(5);
 
@@ -20,7 +20,7 @@ describe(`test`, () => {
     assert.equal(timer.getCurrentTimer(), 5);
   });
 
-  it(`should return 15`, () => {
+  it(`should return 10`, () => {
     const timer = getTimer(20);
 
     for (let i = 0; i < 10; i++) {
