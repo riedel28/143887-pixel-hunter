@@ -2,7 +2,7 @@ import assert from "assert";
 import {getTimer} from "./../utils";
 
 describe(`Check timer decrement`, () => {
-  it(`should return 0`, () => {
+  it(`should return 0 in the last iteration started with 5`, () => {
     const timer = getTimer(5);
 
     for (let i = 0; i < 5; i++) {
@@ -11,7 +11,7 @@ describe(`Check timer decrement`, () => {
     assert.equal(timer.getCurrentTimer(), 0);
   });
 
-  it(`should return 5`, () => {
+  it(`should return 5 in the last iteration started with 10`, () => {
     const timer = getTimer(10);
 
     for (let i = 0; i < 5; i++) {
@@ -20,7 +20,7 @@ describe(`Check timer decrement`, () => {
     assert.equal(timer.getCurrentTimer(), 5);
   });
 
-  it(`should return 10`, () => {
+  it(`should return 10 in the last iteration started with 20`, () => {
     const timer = getTimer(20);
 
     for (let i = 0; i < 10; i++) {

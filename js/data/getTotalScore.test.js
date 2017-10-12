@@ -37,7 +37,7 @@ describe(`Count correct answers`, () => {
     );
   });
 
-  it(`should return 1000`, () => {
+  it(`should return 1000 if all answers are correct `, () => {
     assert.equal(
         getTotalScore(
             [
@@ -58,7 +58,7 @@ describe(`Count correct answers`, () => {
     );
   });
 
-  it(`should return 1550`, () => {
+  it(`should return 1550 if all answers are correct and answered fast`, () => {
     assert.equal(
         getTotalScore(
             [
@@ -79,7 +79,7 @@ describe(`Count correct answers`, () => {
     );
   });
 
-  it(`should return 300`, () => {
+  it(`should return 300 if all answers are correct with given time`, () => {
     assert.equal(
         getTotalScore(
             [
@@ -100,7 +100,7 @@ describe(`Count correct answers`, () => {
     );
   });
 
-  it(`should return 0`, () => {
+  it(`should return 0 if all answers are false`, () => {
     assert.equal(
         getTotalScore(
             [
@@ -121,7 +121,7 @@ describe(`Count correct answers`, () => {
     );
   });
 
-  it(`should return 500`, () => {
+  it(`should return 500 if some answers are correct with given time `, () => {
     assert.equal(
         getTotalScore(
             [
