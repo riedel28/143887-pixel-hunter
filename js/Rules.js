@@ -51,7 +51,8 @@ const onArrowBackClick = () => {
   });
 };
 
-const onFormSubmit = () => {
+const onFormSubmit = (e) => {
+  e.preventDefault();
   removeEventHandlers(handlers, () => {
     renderScreen(game1());
   });
