@@ -1,4 +1,4 @@
-import {getElementFromTemplate} from "./utils";
+// import {getElementFromTemplate} from "./utils";
 import state from "./data/data";
 
 export default () => {
@@ -17,5 +17,5 @@ export default () => {
       </div>
     </header>`;
 
-  return getElementFromTemplate(header);
+  return header;
 };
