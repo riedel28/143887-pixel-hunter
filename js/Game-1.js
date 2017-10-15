@@ -6,9 +6,11 @@ import {
 
 import greeting from "./Greeting";
 import game2 from "./Game-2";
+import header from "./Header";
 
 const game1 = getElementFromTemplate(
-    `<div class="game">
+    `${header()}
+    <div class="game">
       <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
       <form class="game__content">
         <div class="game__option">
