@@ -5,17 +5,15 @@ import {
   displayRandomAnswers
 } from "./utils";
 
+import state from "./data/state";
+
 import greeting from "./Greeting";
 import game3 from "./Game-3";
 import header from "./Header";
 
-const game2 = getElementFromTemplate(
-    `${header()}
-    <div class="game">
-      <p class="game__task">Угадай, фото или рисунок?</p>
-      <form class="game__content  game__content--wide">
-        <div class="game__option">
-          <img src="http://placehold.it/705x455" alt="Option 1" width="705" height="455">
+const displayOptions = state.screens[1].options.map((option) => {
+  return `<div class="game__option">
+          <img src=${option.src} alt="Option 1" width="705" height="455">
           <label class="game__answer  game__answer--photo">
           <input name="question1" type="radio" value="photo">
           <span>Фото</span>
@@ -24,7 +22,15 @@ const game2 = getElementFromTemplate(
           <input name="question1" type="radio" value="paint">
           <span>Рисунок</span>
         </label>
-        </div>
+        </div>`;
+});
+
+const game2 = getElementFromTemplate(
+    `${header()}
+    <div class="game">
+      <p class="game__task">Угадай, фото или рисунок?</p>
+      <form class="game__content  game__content--wide">
+        ${displayOptions}
       </form>
       <div class="stats">
         <ul class="stats">

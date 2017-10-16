@@ -18,22 +18,52 @@ const state = {
     {
       name: `game1`,
       options: [
-        {type: `photo`, src: `https://i.imgur.com/DiHM5Zb.jpg`},
-        {type: `painting`, src: `https://k42.kn3.net/D2F0370D6.jpg`}
+        {
+          type: `photo`,
+          src: `http://lorempixel.com/468/458/animals`,
+          width: 468,
+          height: 458
+        },
+        {
+          type: `painting`,
+          src: `http://lorempixel.com/468/458/animals`,
+          width: 468,
+          height: 458
+        }
       ]
     },
     {
       name: `game2`,
       options: [
-        {type: `photo`, src: `https://k42.kn3.net/D2F0370D6.jpg`},
-        {type: `painting`, src: `https://k42.kn3.net/D2F0370D6.jpg`}
+        {
+          type: `photo`,
+          src: `http://lorempixel.com/705/455/animals`,
+          width: 705,
+          height: 455
+        }
       ]
     },
     {
       name: `game3`,
       options: [
-        {type: `photo`, src: `https://k42.kn3.net/D2F0370D6.jpg`},
-        {type: `painting`, src: `https://k42.kn3.net/D2F0370D6.jpg`}
+        {
+          type: `photo`,
+          src: `http://lorempixel.com/304/455/animals`,
+          width: 304,
+          height: 455
+        },
+        {
+          type: `photo`,
+          src: `http://lorempixel.com/304/455/animals`,
+          width: 304,
+          height: 455
+        },
+        {
+          type: `photo`,
+          src: `http://lorempixel.com/304/455/animals`,
+          width: 304,
+          height: 455
+        }
       ]
     }
   ]

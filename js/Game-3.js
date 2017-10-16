@@ -5,24 +5,24 @@ import {
   displayRandomAnswers
 } from "./utils";
 
+import state from "./data/state";
+
 import header from "./Header";
 import greeting from "./Greeting";
 import stats from "./Stats";
+
+const displayOptions = state.screens[2].options.map((option) => {
+  return `<div class="game__option">
+          <img src=${option.src} alt="Option 1" width="304" height="455">
+        </div>`;
+});
 
 const game3 = getElementFromTemplate(
     `${header()}
     <div class="game">
       <p class="game__task">Найдите рисунок среди изображений</p>
       <form class="game__content  game__content--triple">
-        <div class="game__option">
-          <img src="http://placehold.it/304x455" alt="Option 1" width="304" height="455">
-        </div>
-        <div class="game__option  game__option--selected">
-          <img src="http://placehold.it/304x455" alt="Option 1" width="304" height="455">
-        </div>
-        <div class="game__option">
-          <img src="http://placehold.it/304x455" alt="Option 1" width="304" height="455">
-        </div>
+        ${displayOptions}
       </form>
       <div class="stats">
         <ul class="stats">
