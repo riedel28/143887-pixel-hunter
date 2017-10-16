@@ -5,8 +5,6 @@ import {
 } from "./utils";
 
 import greeting from "./Greeting";
-// import footer from "./Footer";
-// import layout from "./layout";
 
 const intro = getElementFromTemplate(
     `<div id="main" class="central__content">

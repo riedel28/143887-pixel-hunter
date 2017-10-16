@@ -1,26 +1,13 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen
+  renderScreen,
+  displayRandomAnswers
 } from "./utils";
 
 import header from "./Header";
 import greeting from "./Greeting";
 import stats from "./Stats";
-import state from "./data/state";
-
-// const randomValue =
-//   state.answersTypes[Math.floor(Math.random() * state.answersTypes.length)];
-
-const randomize = () => {
-  return state.answersTypes[
-      Math.floor(Math.random() * state.answersTypes.length)
-  ];
-};
-
-const listItems = state.answers.map(() => {
-  return `<li class="stats__result stats__result--${randomize()}"></li>`;
-});
 
 const game3 = getElementFromTemplate(
     `${header()}
@@ -39,7 +26,7 @@ const game3 = getElementFromTemplate(
       </form>
       <div class="stats">
         <ul class="stats">
-        ${listItems}
+        ${displayRandomAnswers}
         </ul>
       </div>
     </div>`

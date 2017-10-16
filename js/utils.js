@@ -1,3 +1,5 @@
+import state from "./data/state";
+
 const getElementFromTemplate = (markup) => {
   const element = document.createElement(`div`);
   element.innerHTML = markup;
@@ -76,3 +78,17 @@ const getTimer = (timer) => {
 };
 
 export {getTimer};
+
+const randomizeAnswers = () => {
+  return state.answersTypes[
+      Math.floor(Math.random() * state.answersTypes.length)
+  ];
+};
+
+export {randomizeAnswers};
+
+const displayRandomAnswers = state.answers.map(() => {
+  return `<li class="stats__result stats__result--${randomizeAnswers()}"></li>`;
+});
+
+export {displayRandomAnswers};
