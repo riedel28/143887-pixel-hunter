@@ -31,3 +31,5 @@ export default () => {
   asterisk.addEventListener(`click`, onAsteriskClick);
   return intro;
 };
+
+

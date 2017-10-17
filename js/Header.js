@@ -1,4 +1,3 @@
-// import {getElementFromTemplate} from "./utils";
 import state from "./data/state";
 
 export default () => {
