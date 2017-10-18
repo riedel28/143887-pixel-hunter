@@ -24,7 +24,11 @@ const getRandomImage = (type) => {
     return getRandomPhoto();
   }
 
-  return getRandomPainting();
+  if (type === `painting`) {
+    return getRandomPainting();
+  }
+
+  return false;
 };
 
 export {getRandomPhoto, getRandomPainting, getRandomImage};

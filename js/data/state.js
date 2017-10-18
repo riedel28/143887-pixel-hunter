@@ -1,4 +1,4 @@
-import {getRandomPhoto, getRandomPainting, getRandomImage} from "./images";
+import {getRandomImage} from "./images";
 
 const state = {
   time: 10,
@@ -71,6 +71,7 @@ const generateGame1 = () => {
   return {
     checkAnswer(answer, type) {
       const types = [`photo`, `painting`];
+      const randomType = types[Math.floor(Math.random() * types.length)];
 
       return (
         answer > -1 &&
@@ -81,11 +82,11 @@ const generateGame1 = () => {
     options: [
       {
         type: `photo`,
-        src: getRandomImage(types[`photo`])
+        src: getRandomImage(randomType)
       },
       {
         type: `painting`,
-        src: getRandomPainting(types[`painting`])
+        src: getRandomImage(randomType)
       }
     ]
   };
