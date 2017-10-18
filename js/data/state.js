@@ -68,11 +68,10 @@ const state = {
 };
 
 const generateGame1 = () => {
+  const types = [`photo`, `painting`];
+  const randomType = Math.floor(Math.random() * types.length);
   return {
     checkAnswer(answer, type) {
-      const types = [`photo`, `painting`];
-      const randomType = types[Math.floor(Math.random() * types.length)];
-
       return (
         answer > -1 &&
         answer < this.options.length &&
