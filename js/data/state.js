@@ -80,11 +80,11 @@ const generateGame1 = () => {
     },
     options: [
       {
-        type: `photo`,
+        type: types[randomType],
         src: getRandomImage(types[randomType])
       },
       {
-        type: `painting`,
+        type: types[randomType],
         src: getRandomImage(types[randomType])
       }
     ]
