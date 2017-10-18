@@ -70,3 +70,16 @@ const state = {
 };
 
 export default state;
+
+const game1 = {
+  photo: {
+    src: `http://lorempixel.com/304/455/animals`,
+    width: 304,
+    height: 455
+  },
+  painting: {
+    src: `http://lorempixel.com/304/455/animals`,
+    width: 304,
+    height: 455
+  }
+};
