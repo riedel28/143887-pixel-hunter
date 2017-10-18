@@ -68,10 +68,9 @@ const state = {
 const generateGame1 = () => {
   return {
     checkAnswer(answer, type) {
-      if (answer === this.options[answer] && type === this.options.type) {
-        return true;
-      }
-      return false;
+      return (
+        answer === this.options[answer] && type === this.options[answer].type
+      );
     },
     options: [
       {
