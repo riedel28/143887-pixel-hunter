@@ -16,7 +16,7 @@ const state = {
   answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
   screens: [
     {
-      name: `game1`,
+      name: `game1`
       // options: [
       //   {
       //     type: `photo`,
@@ -27,20 +27,6 @@ const state = {
       //     src: `http://lorempixel.com/468/458/animals`
       //   }
       // ],
-      generateGame1() {
-        return {
-          options: [
-            {
-              type: `photo`,
-              src: `http://lorempixel.com/468/458/animals`
-            },
-            {
-              type: `painting`,
-              src: `http://lorempixel.com/468/458/animals`
-            }
-          ]
-        };
-      }
     },
     {
       name: `game2`,
@@ -79,4 +65,20 @@ const state = {
   ]
 };
 
-export default state;
+const generateGame1 = () => {
+  return {
+    checkAnswer() {},
+    options: [
+      {
+        type: `photo`,
+        src: `http://lorempixel.com/468/458/animals`
+      },
+      {
+        type: `painting`,
+        src: `http://lorempixel.com/468/458/animals`
+      }
+    ]
+  };
+};
+
+export default {state, generateGame1};
