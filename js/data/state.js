@@ -67,9 +67,13 @@ const state = {
   ]
 };
 
-const generateGame1 = () => {
+const getRandomType = () => {
   const types = [`photo`, `painting`];
   const randomType = Math.floor(Math.random() * types.length);
+  return types[randomType];
+};
+
+const generateGame1 = () => {
   return {
     checkAnswer(answer, type) {
       return (
@@ -80,15 +84,33 @@ const generateGame1 = () => {
     },
     options: [
       {
-        type: types[randomType],
-        src: getRandomImage(types[randomType])
+        type: getRandomType(),
+        src: getRandomImage(getRandomType())
       },
       {
-        type: types[randomType],
-        src: getRandomImage(types[randomType])
+        type: getRandomType(),
+        src: getRandomImage(getRandomType())
       }
     ]
   };
 };
 
-export default {state, generateGame1};
+const generateGame2 = () => {
+  return {
+    checkAnswer(answer, type) {
+      return (
+        answer > -1 &&
+        answer < this.options.length &&
+        type === this.options[answer].type
+      );
+    },
+    options: [
+      {
+        type: getRandomType(),
+        src: getRandomImage(getRandomType())
+      }
+    ]
+  };
+};
+
+export default {state, generateGame1, generateGame2};
