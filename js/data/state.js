@@ -17,20 +17,30 @@ const state = {
   screens: [
     {
       name: `game1`,
-      options: [
-        {
-          type: `photo`,
-          src: `http://lorempixel.com/468/458/animals`,
-          width: 468,
-          height: 458
-        },
-        {
-          type: `painting`,
-          src: `http://lorempixel.com/468/458/animals`,
-          width: 468,
-          height: 458
-        }
-      ]
+      // options: [
+      //   {
+      //     type: `photo`,
+      //     src: `http://lorempixel.com/468/458/animals`
+      //   },
+      //   {
+      //     type: `painting`,
+      //     src: `http://lorempixel.com/468/458/animals`
+      //   }
+      // ],
+      generateGame1() {
+        return {
+          options: [
+            {
+              type: `photo`,
+              src: `http://lorempixel.com/468/458/animals`
+            },
+            {
+              type: `painting`,
+              src: `http://lorempixel.com/468/458/animals`
+            }
+          ]
+        };
+      }
     },
     {
       name: `game2`,
@@ -70,16 +80,3 @@ const state = {
 };
 
 export default state;
-
-const game1 = {
-  photo: {
-    src: `http://lorempixel.com/304/455/animals`,
-    width: 304,
-    height: 455
-  },
-  painting: {
-    src: `http://lorempixel.com/304/455/animals`,
-    width: 304,
-    height: 455
-  }
-};
