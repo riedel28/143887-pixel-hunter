@@ -19,4 +19,12 @@ const getRandomPainting = () => {
   return images.paintings[Math.floor(Math.random() * images.paintings.length)];
 };
 
-export {getRandomPhoto, getRandomPainting};
+const getRandomImage = (type) => {
+  if (type === `photo`) {
+    return getRandomPhoto();
+  }
+
+  return getRandomPainting();
+};
+
+export {getRandomPhoto, getRandomPainting, getRandomImage};

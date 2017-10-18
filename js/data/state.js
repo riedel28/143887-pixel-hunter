@@ -1,3 +1,5 @@
+import {getRandomPhoto, getRandomPainting, getRandomImage} from "./images";
+
 const state = {
   time: 10,
   lives: 3,
@@ -68,6 +70,8 @@ const state = {
 const generateGame1 = () => {
   return {
     checkAnswer(answer, type) {
+      const types = [`photo`, `painting`];
+
       return (
         answer > -1 &&
         answer < this.options.length &&
@@ -77,11 +81,11 @@ const generateGame1 = () => {
     options: [
       {
         type: `photo`,
-        src: `http://lorempixel.com/468/458/animals`
+        src: getRandomImage(types[`photo`])
       },
       {
         type: `painting`,
-        src: `http://lorempixel.com/468/458/animals`
+        src: getRandomPainting(types[`painting`])
       }
     ]
   };
