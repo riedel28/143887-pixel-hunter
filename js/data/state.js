@@ -67,7 +67,12 @@ const state = {
 
 const generateGame1 = () => {
   return {
-    checkAnswer() {},
+    checkAnswer(answer, type) {
+      if (answer === this.options[answer] && type === this.options.type) {
+        return true;
+      }
+      return false;
+    },
     options: [
       {
         type: `photo`,
