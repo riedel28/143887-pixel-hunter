@@ -1,4 +1,4 @@
-export default {
+const images = {
   paintings: [
     `https://k42.kn3.net/D2F0370D6.jpg`,
     `https://k42.kn3.net/CF42609C8.jpg`,
@@ -10,3 +10,13 @@ export default {
     `http://i.imgur.com/DKR1HtB.jpg`
   ]
 };
+
+const getRandomPhoto = () => {
+  return images.photos[Math.floor(Math.random() * images.photos.length)];
+};
+
+const getRandomPainting = () => {
+  return images.paintings[Math.floor(Math.random() * images.paintings.length)];
+};
+
+export {getRandomPhoto, getRandomPainting};
