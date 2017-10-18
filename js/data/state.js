@@ -74,6 +74,7 @@ const getRandomType = () => {
 };
 
 const generateGame1 = () => {
+  const randomType = getRandomType();
   return {
     checkAnswer(answer, type) {
       return (
@@ -84,18 +85,19 @@ const generateGame1 = () => {
     },
     options: [
       {
-        type: types[getRandomType()],
-        src: getRandomImage(getRandomType())
+        type: randomType,
+        src: getRandomImage(randomType)
       },
       {
-        type: types[getRandomType()],
-        src: getRandomImage(getRandomType())
+        type: randomType,
+        src: getRandomImage(randomType)
       }
     ]
   };
 };
 
 const generateGame2 = () => {
+  const randomType = getRandomType();
   return {
     checkAnswer(answer, type) {
       return (
@@ -106,8 +108,8 @@ const generateGame2 = () => {
     },
     options: [
       {
-        type: getRandomType(),
-        src: getRandomImage(getRandomType())
+        type: randomType,
+        src: getRandomImage(randomType)
       }
     ]
   };
