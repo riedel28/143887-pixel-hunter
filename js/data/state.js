@@ -67,10 +67,10 @@ const state = {
   ]
 };
 
+const types = [`photo`, `painting`];
+
 const getRandomType = () => {
-  const types = [`photo`, `painting`];
-  const randomType = Math.floor(Math.random() * types.length);
-  return types[randomType];
+  return Math.floor(Math.random() * types.length - 1);
 };
 
 const generateGame1 = () => {
@@ -84,11 +84,11 @@ const generateGame1 = () => {
     },
     options: [
       {
-        type: getRandomType(),
+        type: types[getRandomType()],
         src: getRandomImage(getRandomType())
       },
       {
-        type: getRandomType(),
+        type: types[getRandomType()],
         src: getRandomImage(getRandomType())
       }
     ]
