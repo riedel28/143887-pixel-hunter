@@ -27,7 +27,7 @@ const generateScreens = () => {
   const games = [generateGame1, generateGame2, generateGame3];
 
   for (let i = 0; i < 10; i++) {
-    const type = state.screens.push(games[randomize(3)]());
+    state.screens.push(games[randomize(3)]());
   }
 };
 
