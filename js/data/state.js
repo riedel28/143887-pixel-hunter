@@ -127,9 +127,11 @@ const generateGame3 = () => {
     options: []
   };
   for (let i = 0; i < 3; i++) {
+    const type = i === randomImage ? randomType : 1 - randomType;
+
     answers.options.push({
-      type: types[randomType],
-      src: getRandomImage(types[randomType])
+      type: types[type],
+      src: getRandomImage(types[type])
     });
   }
 
