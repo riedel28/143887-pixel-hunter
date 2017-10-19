@@ -124,21 +124,15 @@ const generateGame3 = () => {
         type === this.options[answer].type
       );
     },
-    options: [
-      {
-        type: types[randomType],
-        src: getRandomImage(types[randomType])
-      },
-      {
-        type: types[1 - randomType],
-        src: getRandomImage(types[1 - randomType])
-      },
-      {
-        type: types[1 - randomType],
-        src: getRandomImage(types[1 - randomType])
-      }
-    ]
+    options: []
   };
+  for (let i = 0; i < 3; i++) {
+    answers.options.push({
+      type: types[randomType],
+      src: getRandomImage(types[randomType])
+    });
+  }
+
   return answers;
 };
 
