@@ -29,24 +29,28 @@ const generateScreens = () => {
   return screens;
 };
 
-generateScreens();
-
 const types = [`photo`, `painting`];
 
 const getRandomType = () => {
   return randomize(types.length);
 };
 
+const checkAnswerByIndex = function (answer, type) {
+  return (
+    answer > -1 &&
+    answer < this.options.length &&
+    type === this.options[answer].type
+  );
+};
+
+const checkAnswerByType = function (type) {
+  return type === this.options[0].type;
+};
+
 const generateGame1 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswer(answer, type) {
-      return (
-        answer > -1 &&
-        answer < this.options.length &&
-        type === this.options[answer].type
-      );
-    },
+    checkAnswer: checkAnswerByIndex.bind(this),
     type: 1,
     options: [
       {
@@ -64,9 +68,7 @@ const generateGame1 = () => {
 const generateGame2 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswer(type) {
-      return type === this.options[0].type;
-    },
+    checkAnswer: checkAnswerByType.bind(this),
     type: 2,
     options: [
       {
@@ -83,13 +85,7 @@ const generateGame3 = () => {
   const randomImage = randomize(3);
 
   const answers = {
-    checkAnswer(answer, type) {
-      return (
-        answer > -1 &&
-        answer < this.options.length &&
-        type === this.options[answer].type
-      );
-    },
+    checkAnswer: checkAnswerByIndex.bind(this),
     type: 3,
     options: []
   };
