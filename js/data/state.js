@@ -85,18 +85,33 @@ const generateGame1 = () => {
     },
     options: [
       {
-        type: randomType,
-        src: getRandomImage(randomType)
+        type: types[randomType],
+        src: getRandomImage(types[randomType])
       },
       {
-        type: randomType,
-        src: getRandomImage(randomType)
+        type: types[1 - randomType],
+        src: getRandomImage(types[1 - randomType])
       }
     ]
   };
 };
 
 const generateGame2 = () => {
+  const randomType = getRandomType();
+  return {
+    checkAnswer(type) {
+      return type === this.options[0].type;
+    },
+    options: [
+      {
+        type: types[randomType],
+        src: getRandomImage(types[randomType])
+      }
+    ]
+  };
+};
+
+const generateGame3 = () => {
   const randomType = getRandomType();
   return {
     checkAnswer(answer, type) {
@@ -108,11 +123,19 @@ const generateGame2 = () => {
     },
     options: [
       {
-        type: randomType,
-        src: getRandomImage(randomType)
+        type: types[randomType],
+        src: getRandomImage(types[randomType])
+      },
+      {
+        type: types[1 - randomType],
+        src: getRandomImage(types[2 - randomType])
+      },
+      {
+        type: types[2 - randomType],
+        src: getRandomImage(types[2 - randomType])
       }
     ]
   };
 };
 
-export default {state, generateGame1, generateGame2};
+export default {state, generateGame1, generateGame2, generateGame3};
