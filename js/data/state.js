@@ -16,56 +16,23 @@ const state = {
     {succes: true, time: 30}
   ],
   answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
-  screens: [
-    {
-      name: `game1`
-      // options: [
-      //   {
-      //     type: `photo`,
-      //     src: `http://lorempixel.com/468/458/animals`
-      //   },
-      //   {
-      //     type: `painting`,
-      //     src: `http://lorempixel.com/468/458/animals`
-      //   }
-      // ],
-    },
-    {
-      name: `game2`,
-      options: [
-        {
-          type: `photo`,
-          src: `http://lorempixel.com/705/455/animals`,
-          width: 705,
-          height: 455
-        }
-      ]
-    },
-    {
-      name: `game3`,
-      options: [
-        {
-          type: `photo`,
-          src: `http://lorempixel.com/304/455/animals`,
-          width: 304,
-          height: 455
-        },
-        {
-          type: `photo`,
-          src: `http://lorempixel.com/304/455/animals`,
-          width: 304,
-          height: 455
-        },
-        {
-          type: `photo`,
-          src: `http://lorempixel.com/304/455/animals`,
-          width: 304,
-          height: 455
-        }
-      ]
-    }
-  ]
+  screens: []
 };
+
+const generateScreens = () => {
+  const games = [];
+  games.push(generateGame1);
+  games.push(generateGame2);
+  games.push(generateGame3);
+
+  const randomItem = Math.floor(Math.random() * 3);
+
+  for (let i = 0; i < 10; i++) {
+    state.screens.push(games[randomItem]());
+  }
+};
+
+generateScreens();
 
 const types = [`photo`, `painting`];
 
