@@ -113,7 +113,10 @@ const generateGame2 = () => {
 
 const generateGame3 = () => {
   const randomType = getRandomType();
-  return {
+
+  const randomImage = Math.floor(Math.random() * 3);
+
+  const answers = {
     checkAnswer(answer, type) {
       return (
         answer > -1 &&
@@ -131,11 +134,12 @@ const generateGame3 = () => {
         src: getRandomImage(types[1 - randomType])
       },
       {
-        type: types[2 - randomType],
-        src: getRandomImage(types[2 - randomType])
+        type: types[1 - randomType],
+        src: getRandomImage(types[1 - randomType])
       }
     ]
   };
+  return answers;
 };
 
 export default {state, generateGame1, generateGame2, generateGame3};
