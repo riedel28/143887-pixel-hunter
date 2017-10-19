@@ -128,7 +128,7 @@ const generateGame3 = () => {
       },
       {
         type: types[1 - randomType],
-        src: getRandomImage(types[2 - randomType])
+        src: getRandomImage(types[1 - randomType])
       },
       {
         type: types[2 - randomType],
