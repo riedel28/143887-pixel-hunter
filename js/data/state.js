@@ -1,23 +1,17 @@
 import {getRandomImage} from "./images";
 
-const state = {
-  time: 10,
-  lives: 3,
-  answers: [
-    {succes: true, time: 10},
-    {succes: true, time: 20},
-    {succes: true, time: 30},
-    {succes: true, time: 30},
-    {succes: true, time: 30},
-    {succes: true, time: 30},
-    {succes: true, time: 30},
-    {succes: true, time: 30},
-    {succes: true, time: 30},
-    {succes: true, time: 30}
-  ],
-  answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
-  screens: []
+const generateState = () => {
+  return {
+    time: 30,
+    lives: 3,
+    answers: [],
+    answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
+    screens: generateScreens(),
+    currentScreen: 0
+  };
 };
+
+const state = generateState();
 
 const randomize = (num) => {
   return Math.floor(Math.random() * num + 1);
@@ -26,8 +20,10 @@ const randomize = (num) => {
 const generateScreens = () => {
   const games = [generateGame1, generateGame2, generateGame3];
 
+  const screens = [];
+
   for (let i = 0; i < 10; i++) {
-    state.screens.push(games[randomize(3)]());
+    screens.push(games[randomize(3)]());
   }
 };
 
