@@ -19,11 +19,15 @@ const state = {
   screens: []
 };
 
+const randomize = (num) => {
+  return Math.floor(Math.random() * num);
+};
+
 const generateScreens = () => {
   const games = [generateGame1, generateGame2, generateGame3];
 
   for (let i = 0; i < 10; i++) {
-    const randomItem = Math.floor(Math.random() * 3);
+    const randomItem = randomize(3);
     state.screens.push(games[randomItem]());
   }
 };
@@ -33,7 +37,7 @@ generateScreens();
 const types = [`photo`, `painting`];
 
 const getRandomType = () => {
-  return Math.floor(Math.random() * types.length - 1);
+  return randomize(types.length - 1);
 };
 
 const generateGame1 = () => {
@@ -77,7 +81,7 @@ const generateGame2 = () => {
 const generateGame3 = () => {
   const randomType = getRandomType();
 
-  const randomImage = Math.floor(Math.random() * 3);
+  const randomImage = randomize(3);
 
   const answers = {
     checkAnswer(answer, type) {
