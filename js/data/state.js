@@ -20,14 +20,10 @@ const state = {
 };
 
 const generateScreens = () => {
-  const games = [];
-  games.push(generateGame1);
-  games.push(generateGame2);
-  games.push(generateGame3);
-
-  const randomItem = Math.floor(Math.random() * 3);
+  const games = [generateGame1, generateGame2, generateGame3];
 
   for (let i = 0; i < 10; i++) {
+    const randomItem = Math.floor(Math.random() * 3);
     state.screens.push(games[randomItem]());
   }
 };
