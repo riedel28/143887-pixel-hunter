@@ -32,9 +32,13 @@ const generateScreens = () => {
 const getNextScreen = () => {
   if (state.currentScreen > 0 && state.currentScreen < state.screens.length) {
     ++state.currentScreen;
+    return state.screens;
   }
-  return state.screens;
+
+  return false;
 };
+
+const getNextScreenInfo = (params) => {};
 
 const types = [`photo`, `painting`];
 
