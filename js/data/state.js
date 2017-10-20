@@ -31,8 +31,7 @@ const generateScreens = () => {
 
 const getNextScreen = () => {
   if (state.currentScreen > 0 && state.currentScreen < state.screens.length) {
-    ++state.currentScreen;
-    return state.screens;
+    return state.screens[++state.currentScreen];
   }
 
   return false;
