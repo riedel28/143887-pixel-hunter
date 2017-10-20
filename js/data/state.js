@@ -29,15 +29,13 @@ const generateScreens = () => {
   return screens;
 };
 
-const getNextScreen = () => {
+const getNextScreenData = () => {
   if (state.currentScreen > 0 && state.currentScreen < state.screens.length) {
     return state.screens[++state.currentScreen];
   }
 
   return false;
 };
-
-const getNextScreenInfo = (params) => {};
 
 const types = [`photo`, `painting`];
 
@@ -113,4 +111,10 @@ const generateGame3 = () => {
   return answers;
 };
 
-export {state, getNextScreen, generateGame1, generateGame2, generateGame3};
+export {
+  state,
+  getNextScreenData,
+  generateGame1,
+  generateGame2,
+  generateGame3
+};
