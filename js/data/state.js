@@ -35,22 +35,12 @@ const getRandomType = () => {
   return randomize(types.length);
 };
 
-const checkAnswerByIndex = function (answer, type) {
-  return (
-    answer > -1 &&
-    answer < this.options.length &&
-    type === this.options[answer].type
-  );
-};
-
-const checkAnswerByType = function (type) {
-  return type === this.options[0].type;
-};
-
 const generateGame1 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswer: checkAnswerByIndex.bind(this),
+    checkAnswe(type) {
+      return type === this.options[0].type;
+    },
     type: 1,
     options: [
       {
@@ -68,7 +58,13 @@ const generateGame1 = () => {
 const generateGame2 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswer: checkAnswerByType.bind(this),
+    checkAnswer(answer, type) {
+      return (
+        answer > -1 &&
+        answer < this.options.length &&
+        type === this.options[answer].type
+      );
+    },
     type: 2,
     options: [
       {
@@ -85,7 +81,13 @@ const generateGame3 = () => {
   const randomImage = randomize(3);
 
   const answers = {
-    checkAnswer: checkAnswerByIndex.bind(this),
+    checkAnswer(answer, type) {
+      return (
+        answer > -1 &&
+        answer < this.options.length &&
+        type === this.options[answer].type
+      );
+    },
     type: 3,
     options: []
   };
