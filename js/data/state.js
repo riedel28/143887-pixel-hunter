@@ -29,6 +29,13 @@ const generateScreens = () => {
   return screens;
 };
 
+const getNextScreenNum = () => {
+  if (state.currentScreen >= 0 && state.currentScreen < state.screens.length) {
+    ++state.currentScreen;
+  }
+  return false;
+};
+
 const types = [`photo`, `painting`];
 
 const getRandomType = () => {
@@ -38,8 +45,12 @@ const getRandomType = () => {
 const generateGame1 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswe(type) {
-      return type === this.options[0].type;
+    checkAnswer(answer, type) {
+      return (
+        answer > -1 &&
+        answer < this.options.length &&
+        type === this.options[answer].type
+      );
     },
     type: 1,
     options: [
@@ -58,12 +69,8 @@ const generateGame1 = () => {
 const generateGame2 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswer(answer, type) {
-      return (
-        answer > -1 &&
-        answer < this.options.length &&
-        type === this.options[answer].type
-      );
+    checkAnswe(type) {
+      return type === this.options[0].type;
     },
     type: 2,
     options: [
