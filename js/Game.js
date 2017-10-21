@@ -8,6 +8,8 @@ const games = [game1, game2, game3];
 
 const getNextScreen = () => {
   const nextScreen = getNextScreenData();
+
+  games.forEach((game) => {});
   return renderScreen(nextScreen);
 };
 
