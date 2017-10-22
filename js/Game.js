@@ -7,10 +7,9 @@ import getNextScreenData from "./data/state";
 const games = [game1, game2, game3];
 
 const getNextScreen = () => {
-  const nextScreen = getNextScreenData();
+  const nextScreenData = getNextScreenData();
 
-  games.forEach((game) => {});
-  return renderScreen(nextScreen);
+  return renderScreen(nextScreenData);
 };
 
 export {getNextScreen, games};
