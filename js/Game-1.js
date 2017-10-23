@@ -31,7 +31,7 @@ const stats = `<div class="stats">
                 </ul>
                </div>`;
 
-const game1 = () => {
+const game1 = (currentScreenState) => {
   return getElementFromTemplate(
       `${header()}
     <div class="game">
