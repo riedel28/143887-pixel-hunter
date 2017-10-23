@@ -1,8 +1,8 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen,
-  displayRandomAnswers
+  renderScreen
+  // displayRandomAnswers
 } from "./utils";
 
 import state from "./data/state";
@@ -11,25 +11,29 @@ import greeting from "./Greeting";
 import game2 from "./Game-2";
 import header from "./Header";
 
-const displayOptions = state.screens[0].options.map((option) => {
-  return `<div class="game__option">
-            <img src=${option.src} alt="Option 1">
-            <label class="game__answer game__answer--photo">
-            <input name="question1" type="radio" value="photo">
-              <span>Фото</span>
-            </label>
-            <label class="game__answer game__answer--paint">
-              <input name="question1" type="radio" value="paint">
-            <span>Рисунок</span>
-            </label>
-          </div>`;
-});
+const displayOptions = (currentScreenState) => {
+  return currentScreenState.screens[0].options.map((option) => {
+    return `<div class="game__option">
+              <img src=${option.src} alt="Option 1">
+              <label class="game__answer game__answer--photo">
+              <input name="question1" type="radio" value="photo">
+                <span>Фото</span>
+              </label>
+              <label class="game__answer game__answer--paint">
+                <input name="question1" type="radio" value="paint">
+              <span>Рисунок</span>
+              </label>
+            </div>`;
+  });
+};
 
-const stats = `<div class="stats">
-                <ul class="stats">
-                  ${displayRandomAnswers}
-                </ul>
-               </div>`;
+const stats = (currentScreenState) => {
+  return `<div class="stats">
+  <ul class="stats">
+    ${currentScreenState.answers}
+  </ul>
+ </div>`;
+};
 
 const game1 = (currentScreenState) => {
   return getElementFromTemplate(
@@ -37,9 +41,9 @@ const game1 = (currentScreenState) => {
     <div class="game">
       <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
       <form class="game__content">
-        ${displayOptions}
+        ${displayOptions(currentScreenState)}
       </form>
-      ${stats}
+      ${stats(currentScreenState)}
     </div>`
   );
 };
