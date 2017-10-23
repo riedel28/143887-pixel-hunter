@@ -5,14 +5,14 @@ import {
   // displayRandomAnswers
 } from "./utils";
 
-import state from "./data/state";
+// import state from "./data/state";
 
 import greeting from "./Greeting";
 import game2 from "./Game-2";
 import header from "./Header";
 
 const displayOptions = (currentScreenState) => {
-  return currentScreenState.screens[0].options.map((option) => {
+  return currentScreenState.options.map((option) => {
     return `<div class="game__option">
               <img src=${option.src} alt="Option 1">
               <label class="game__answer game__answer--photo">
