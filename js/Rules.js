@@ -1,7 +1,8 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen
+  renderScreen,
+  getNextScreen
 } from "./utils";
 
 import greeting from "./Greeting";
@@ -54,7 +55,7 @@ const onArrowBackClick = () => {
 const onFormSubmit = (e) => {
   e.preventDefault();
   removeEventHandlers(handlers, () => {
-    renderScreen(game1());
+    getNextScreen();
   });
 };
 
