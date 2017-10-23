@@ -9,7 +9,6 @@ import {
 // import state from "./data/state";
 
 import greeting from "./Greeting";
-import game2 from "./Game-2";
 import header from "./Header";
 
 const displayOptions = (currentScreenState) => {

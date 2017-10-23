@@ -2,35 +2,40 @@ import {
   getElementFromTemplate,
   removeEventHandlers,
   renderScreen,
-  displayRandomAnswers
+  getNextScreen
+  // displayRandomAnswers
 } from "./utils";
 
-import state from "./data/state";
+// import state from "./data/state";
 
 import header from "./Header";
 import greeting from "./Greeting";
 import stats from "./Stats";
 
-const displayOptions = state.screens[2].options.map((option) => {
-  return `<div class="game__option">
-          <img src=${option.src} alt="Option 1" width="304" height="455">
-        </div>`;
-});
+const displayOptions = (currentScreenState) => {
+  return currentScreenState.options.map((option) => {
+    return `<div class="game__option">
+            <img src=${option.src} alt="Option ${option.type}" width="304" height="455">
+          </div>`;
+  });
+};
 
-const game3 = getElementFromTemplate(
-    `${header()}
+const game3 = (currentScreenState) => {
+  return getElementFromTemplate(
+      `${header()}
     <div class="game">
       <p class="game__task">Найдите рисунок среди изображений</p>
       <form class="game__content  game__content--triple">
-        ${displayOptions}
+      ${displayOptions(currentScreenState)}
       </form>
       <div class="stats">
         <ul class="stats">
-        ${displayRandomAnswers}
+        ${stats(currentScreenState)}
         </ul>
       </div>
     </div>`
-);
+  );
+};
 
 const arrowBack = game3.querySelector(`.header__back`);
 const form = game3.querySelector(`.game__content`);
@@ -46,7 +51,7 @@ const onFormClick = () => {
   const options = game3.querySelectorAll(`.game__option`);
   if (options.length > 0) {
     removeEventHandlers(handlers, () => {
-      renderScreen(stats());
+      getNextScreen();
     });
   }
 };
@@ -54,8 +59,8 @@ const onFormClick = () => {
 handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 handlers.push({target: form, type: `click`, handler: onFormClick});
 
-export default () => {
+export default (currentScreenState) => {
   arrowBack.addEventListener(`click`, onArrowBackClick);
   form.addEventListener(`click`, onFormClick);
-  return game3;
+  return game3(currentScreenState);
 };
