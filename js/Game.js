@@ -9,11 +9,9 @@ const games = [game1, game2, game3];
 const getNextScreen = () => {
   const nextScreenData = getNextScreenData();
 
-  games.forEach((game, index) => {
-    if (nextScreenData.type === game[index + 1]) {
-      return renderScreen(game);
-    }
-  });
+  if (nextScreenData.type === games[nextScreenData.type + 1]) {
+    return renderScreen(games[nextScreenData.type]);
+  }
 };
 
 export {getNextScreen, games};
