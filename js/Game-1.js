@@ -31,8 +31,9 @@ const stats = `<div class="stats">
                 </ul>
                </div>`;
 
-const game1 = getElementFromTemplate(
-    `${header()}
+const game1 = () => {
+  return getElementFromTemplate(
+      `${header()}
     <div class="game">
       <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
       <form class="game__content">
@@ -40,7 +41,8 @@ const game1 = getElementFromTemplate(
       </form>
       ${stats}
     </div>`
-);
+  );
+};
 
 const arrowBack = game1.querySelector(`.header__back`);
 const form = game1.querySelector(`.game__content`);
