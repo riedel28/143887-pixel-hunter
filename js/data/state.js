@@ -70,7 +70,7 @@ const generateGame1 = () => {
 const generateGame2 = () => {
   const randomType = getRandomType();
   return {
-    checkAnswe(type) {
+    checkAnswer(type) {
       return type === this.options[0].type;
     },
     type: 2,

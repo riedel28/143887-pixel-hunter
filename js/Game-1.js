@@ -13,7 +13,7 @@ import header from "./Header";
 
 const displayOptions = state.screens[0].options.map((option) => {
   return `<div class="game__option">
-            <img src=${option.src} alt="Option 1" width=${option.width} height=${option.height}>
+            <img src=${option.src} alt="Option 1">
             <label class="game__answer game__answer--photo">
             <input name="question1" type="radio" value="photo">
               <span>Фото</span>
@@ -65,8 +65,8 @@ const onFormClick = () => {
 handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
 handlers.push({target: form, type: `click`, handler: onFormClick});
 
-export default () => {
+export default (currentScreenState) => {
   form.addEventListener(`click`, onFormClick);
   arrowBack.addEventListener(`click`, onArrowBackClick);
-  return game1;
+  return game1(currentScreenState);
 };
