@@ -64,7 +64,7 @@ const onFormClick = () => {
   const checkedInputs = game1.querySelectorAll(`input:checked`);
   if (checkedInputs.length > 0) {
     removeEventHandlers(handlers, () => {
-      getNextScreen(game2());
+      getNextScreen();
     });
   }
 };
