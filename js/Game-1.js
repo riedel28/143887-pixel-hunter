@@ -1,7 +1,8 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen
+  renderScreen,
+  getNextScreen
   // displayRandomAnswers
 } from "./utils";
 
@@ -14,7 +15,7 @@ import header from "./Header";
 const displayOptions = (currentScreenState) => {
   return currentScreenState.options.map((option) => {
     return `<div class="game__option">
-              <img src=${option.src} alt="Option 1">
+              <img src=${option.src} alt="Option ${option.type}">
               <label class="game__answer game__answer--photo">
               <input name="question1" type="radio" value="photo">
                 <span>Фото</span>
@@ -63,7 +64,7 @@ const onFormClick = () => {
   const checkedInputs = game1.querySelectorAll(`input:checked`);
   if (checkedInputs.length > 0) {
     removeEventHandlers(handlers, () => {
-      renderScreen(game2());
+      getNextScreen(game2());
     });
   }
 };
