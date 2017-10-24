@@ -6,7 +6,7 @@ import {
   // displayRandomAnswers
 } from "./utils";
 
-// import state from "./data/state";
+import {checkAnswer, type} from "./data/state";
 
 import greeting from "./Greeting";
 import header from "./Header";
@@ -61,8 +61,16 @@ const onArrowBackClick = () => {
 
 const onFormClick = () => {
   const checkedInputs = game1.querySelectorAll(`input:checked`);
-  if (checkedInputs.length > 0) {
+
+  if (checkedInputs.length > 1) {
+    const answers = [];
+
+    answers.push(checkedInputs.value);
+
     removeEventHandlers(handlers, () => {
+      answers.forEach((answer) => {
+        checkAnswer(answer, type);
+      });
       getNextScreen();
     });
   }
