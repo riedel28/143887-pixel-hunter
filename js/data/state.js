@@ -7,7 +7,7 @@ const randomize = (num) => {
 };
 
 const getRandomType = () => {
-  return randomize(types.length);
+  return randomize(0);
 };
 
 const generateGame1 = () => {
@@ -84,7 +84,7 @@ const generateScreens = () => {
   const screens = [];
 
   for (let i = 0; i < 10; i++) {
-    screens.push(games[randomize(3)]);
+    screens.push(games[0]);
   }
 
   return screens;
