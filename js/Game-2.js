@@ -1,12 +1,12 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen,
-  getNextScreen
+  renderScreen
   // displayRandomAnswers
 } from "./utils";
 
 // import state from "./data/state";
+import getNextScreen from "./Game";
 
 import greeting from "./Greeting";
 // import game3 from "./Game-3";

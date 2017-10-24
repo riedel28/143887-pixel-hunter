@@ -1,12 +1,12 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen,
-  getNextScreen
+  renderScreen
 } from "./utils";
 
 import greeting from "./Greeting";
 // import game1 from "./Game-1";
+import getNextScreen from "./Game";
 
 const rules = getElementFromTemplate(
     `<header class="header">
