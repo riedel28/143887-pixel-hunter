@@ -36,18 +36,20 @@ const stats = (currentScreenState) => {
  </div>`;
 };
 
-const game1 = (currentScreenState) => {
+const getGame1 = (currentScreenState) => {
   return getElementFromTemplate(
       `${header()}
-    <div class="game">
-      <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
-      <form class="game__content">
-        ${displayOptions(currentScreenState)}
-      </form>
-      ${stats(currentScreenState)}
-    </div>`
+      <div class="game">
+        <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
+        <form class="game__content">
+          ${displayOptions(currentScreenState)}
+        </form>
+        ${stats(currentScreenState)}
+      </div>`
   );
 };
+
+const game1 = getGame1();
 
 const arrowBack = game1.querySelector(`.header__back`);
 const form = game1.querySelector(`.game__content`);
