@@ -20,7 +20,7 @@ const displayOptions = (currentScreenState) => {
   });
 };
 
-const game3 = (currentScreenState) => {
+const getGame3 = (currentScreenState) => {
   return getElementFromTemplate(
       `${header()}
     <div class="game">
@@ -37,30 +37,37 @@ const game3 = (currentScreenState) => {
   );
 };
 
-const arrowBack = game3.querySelector(`.header__back`);
-const form = game3.querySelector(`.game__content`);
-
-const handlers = [];
-const onArrowBackClick = () => {
-  removeEventHandlers(handlers, () => {
-    renderScreen(greeting());
-  });
-};
-
-const onFormClick = () => {
-  const options = game3.querySelectorAll(`.game__option`);
-  if (options.length > 0) {
-    removeEventHandlers(handlers, () => {
-      getNextScreen();
-    });
-  }
-};
-
-handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
-handlers.push({target: form, type: `click`, handler: onFormClick});
-
 export default (currentScreenState) => {
+  const game3 = getGame3(currentScreenState);
+  const arrowBack = game3.querySelector(`.header__back`);
+  const form = game3.querySelector(`.game__content`);
+
+  const handlers = [];
+
+  const onArrowBackClick = () => {
+    removeEventHandlers(handlers, () => {
+      renderScreen(greeting());
+    });
+  };
+
+  const onFormClick = () => {
+    const options = game3.querySelectorAll(`.game__option`);
+    if (options.length > 0) {
+      removeEventHandlers(handlers, () => {
+        getNextScreen();
+      });
+    }
+  };
+
   arrowBack.addEventListener(`click`, onArrowBackClick);
   form.addEventListener(`click`, onFormClick);
-  return game3(currentScreenState);
+
+  handlers.push({
+    target: arrowBack,
+    type: `click`,
+    handler: onArrowBackClick
+  });
+  handlers.push({target: form, type: `click`, handler: onFormClick});
+
+  return game3;
 };

@@ -36,7 +36,7 @@ const stats = (currentScreenState) => {
  </div>`;
 };
 
-const game2 = (currentScreenState) => {
+const getGame2 = (currentScreenState) => {
   return getElementFromTemplate(
       `${header()}
     <div class="game">
@@ -53,31 +53,37 @@ const game2 = (currentScreenState) => {
   );
 };
 
-const arrowBack = game2.querySelector(`.header__back`);
-const form = game2.querySelector(`.game__content`);
-
-const handlers = [];
-
-const onArrowBackClick = () => {
-  removeEventHandlers(handlers, () => {
-    renderScreen(greeting());
-  });
-};
-
-const onFormClick = () => {
-  const checkedInputs = game2.querySelectorAll(`input:checked`);
-  if (checkedInputs.length > 0) {
-    removeEventHandlers(handlers, () => {
-      getNextScreen();
-    });
-  }
-};
-
-handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
-handlers.push({target: form, type: `click`, handler: onFormClick});
-
 export default (currentScreenState) => {
+  const game2 = getGame2(currentScreenState);
+  const arrowBack = game2.querySelector(`.header__back`);
+  const form = game2.querySelector(`.game__content`);
+
+  const handlers = [];
+
+  const onArrowBackClick = () => {
+    removeEventHandlers(handlers, () => {
+      renderScreen(greeting());
+    });
+  };
+
+  const onFormClick = () => {
+    const checkedInputs = game2.querySelectorAll(`input:checked`);
+    if (checkedInputs.length > 0) {
+      removeEventHandlers(handlers, () => {
+        getNextScreen();
+      });
+    }
+  };
+
   arrowBack.addEventListener(`click`, onArrowBackClick);
   form.addEventListener(`click`, onFormClick);
-  return game2(currentScreenState);
+
+  handlers.push({
+    target: arrowBack,
+    type: `click`,
+    handler: onArrowBackClick
+  });
+  handlers.push({target: form, type: `click`, handler: onFormClick});
+
+  return game2;
 };
