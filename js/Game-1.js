@@ -7,7 +7,7 @@ import {
 
 import getNextScreen from "./Game";
 
-import {checkAnswer, type} from "./data/state";
+import state from "./data/state";
 
 import greeting from "./Greeting";
 import header from "./Header";
@@ -69,9 +69,9 @@ const onFormClick = () => {
     answers.push(checkedInputs.value);
 
     removeEventHandlers(handlers, () => {
-      answers.forEach((answer) => {
-        checkAnswer(answer, type);
-      });
+      // answers.forEach((answer) => {
+      //   checkAnswer(answer, type);
+      // });
       getNextScreen();
     });
   }

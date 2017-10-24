@@ -2,7 +2,7 @@ import game1 from "./Game-1";
 import game2 from "./Game-2";
 import game3 from "./Game-3";
 import stats from "./Stats";
-import renderScreen from "./utils";
+import {renderScreen} from "./utils";
 import getNextScreenData from "./data/state";
 import state from "./data/state";
 
