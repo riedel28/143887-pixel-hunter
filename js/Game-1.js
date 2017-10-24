@@ -7,7 +7,7 @@ import {
 
 import getNextScreen from "./Game";
 
-import state from "./data/state";
+// import state from "./data/state";
 
 import greeting from "./Greeting";
 import header from "./Header";

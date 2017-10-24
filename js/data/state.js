@@ -1,48 +1,5 @@
 import {getRandomImage} from "./images";
 
-const generateState = () => {
-  return {
-    time: 30,
-    lives: 0,
-    answers: [],
-    answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
-    screens: generateScreens(),
-    currentScreen: 0
-  };
-};
-
-const state = generateState();
-
-const randomize = (num) => {
-  return Math.floor(Math.random() * num + 1);
-};
-
-const generateScreens = () => {
-  const games = [generateGame1, generateGame2, generateGame3];
-
-  const screens = [];
-
-  for (let i = 0; i < 10; i++) {
-    screens.push(games[randomize(3)]());
-  }
-
-  return screens;
-};
-
-const getNextScreenData = () => {
-  if (state.currentScreen > 0 && state.currentScreen < state.screens.length) {
-    return state.screens[++state.currentScreen];
-  }
-
-  return false;
-};
-
-const types = [`photo`, `painting`];
-
-const getRandomType = () => {
-  return randomize(types.length);
-};
-
 const generateGame1 = () => {
   const randomType = getRandomType();
   return {
@@ -83,6 +40,10 @@ const generateGame2 = () => {
   };
 };
 
+const randomize = (num) => {
+  return Math.floor(Math.random() * num + 1);
+};
+
 const generateGame3 = () => {
   const randomType = getRandomType();
 
@@ -109,6 +70,45 @@ const generateGame3 = () => {
   }
 
   return answers;
+};
+
+const generateScreens = () => {
+  const games = [generateGame1, generateGame2, generateGame3];
+
+  const screens = [];
+
+  for (let i = 0; i < 10; i++) {
+    screens.push(games[randomize(3)]());
+  }
+
+  return screens;
+};
+
+const generateState = () => {
+  return {
+    time: 30,
+    lives: 0,
+    answers: [],
+    answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
+    screens: generateScreens(),
+    currentScreen: 0
+  };
+};
+
+const state = generateState();
+
+const getNextScreenData = () => {
+  if (state.currentScreen > 0 && state.currentScreen < state.screens.length) {
+    return state.screens[++state.currentScreen];
+  }
+
+  return false;
+};
+
+const types = [`photo`, `painting`];
+
+const getRandomType = () => {
+  return randomize(types.length);
 };
 
 export default getNextScreenData;
