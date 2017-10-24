@@ -1,5 +1,15 @@
 import {getRandomImage} from "./images";
 
+const types = [`photo`, `painting`];
+
+const randomize = (num) => {
+  return Math.floor(Math.random() * num + 1);
+};
+
+const getRandomType = () => {
+  return randomize(types.length);
+};
+
 const generateGame1 = () => {
   const randomType = getRandomType();
   return {
@@ -38,10 +48,6 @@ const generateGame2 = () => {
       }
     ]
   };
-};
-
-const randomize = (num) => {
-  return Math.floor(Math.random() * num + 1);
 };
 
 const generateGame3 = () => {
@@ -103,12 +109,6 @@ const getNextScreenData = () => {
   }
 
   return false;
-};
-
-const types = [`photo`, `painting`];
-
-const getRandomType = () => {
-  return randomize(types.length);
 };
 
 export default getNextScreenData;
