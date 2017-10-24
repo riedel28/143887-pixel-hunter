@@ -3,7 +3,7 @@ import {getRandomImage} from "./images";
 const generateState = () => {
   return {
     time: 30,
-    lives: 3,
+    lives: 0,
     answers: [],
     answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
     screens: generateScreens(),

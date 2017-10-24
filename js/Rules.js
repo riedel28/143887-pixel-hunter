@@ -6,7 +6,7 @@ import {
 } from "./utils";
 
 import greeting from "./Greeting";
-import game1 from "./Game-1";
+// import game1 from "./Game-1";
 
 const rules = getElementFromTemplate(
     `<header class="header">
