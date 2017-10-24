@@ -52,10 +52,12 @@ export default (currentScreenState) => {
   const arrowBack = game1.querySelector(`.header__back`);
   const form = game1.querySelector(`.game__content`);
 
+  const handlers = [];
+
   form.addEventListener(`click`, onFormClick);
   arrowBack.addEventListener(`click`, onArrowBackClick);
 
-  const onFormClick = (handlers) => {
+  const onFormClick = () => {
     const checkedInputs = game1.querySelectorAll(`input:checked`);
 
     if (checkedInputs.length > 1) {
@@ -72,22 +74,22 @@ export default (currentScreenState) => {
     }
   };
 
-  const onArrowBackClick = (handlers) => {
+  const onArrowBackClick = () => {
     removeEventHandlers(handlers, () => {
       renderScreen(greeting());
     });
   };
 
-  const handlers = [];
-
   handlers.push({
     target: arrowBack,
     type: `click`,
-    handler: onArrowBackClick(handlers)
+    handler: onArrowBackClick
   });
   handlers.push({
     target: form,
     type: `click`,
-    handler: onFormClick(handlers)
+    handler: onFormClick
   });
+
+  return game1;
 };
