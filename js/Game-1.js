@@ -54,9 +54,6 @@ export default (currentScreenState) => {
 
   const handlers = [];
 
-  form.addEventListener(`click`, onFormClick);
-  arrowBack.addEventListener(`click`, onArrowBackClick);
-
   const onFormClick = () => {
     const checkedInputs = game1.querySelectorAll(`input:checked`);
 
@@ -79,6 +76,9 @@ export default (currentScreenState) => {
       renderScreen(greeting());
     });
   };
+
+  form.addEventListener(`click`, onFormClick);
+  arrowBack.addEventListener(`click`, onArrowBackClick);
 
   handlers.push({
     target: arrowBack,
