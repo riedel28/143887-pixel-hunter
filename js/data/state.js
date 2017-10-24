@@ -84,7 +84,7 @@ const generateScreens = () => {
   const screens = [];
 
   for (let i = 0; i < 10; i++) {
-    screens.push(games[randomize(3)]());
+    screens.push(games[randomize(3)]);
   }
 
   return screens;

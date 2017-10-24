@@ -1,8 +1,8 @@
 import {
   getElementFromTemplate,
   removeEventHandlers,
-  renderScreen,
-  displayRandomAnswers
+  renderScreen
+  // displayRandomAnswers
 } from "./utils";
 
 import greeting from "./Greeting";
@@ -23,7 +23,7 @@ const stats = getElementFromTemplate(
           <td class="result__number">1.</td>
           <td colspan="2">
             <ul class="stats">
-             ${displayRandomAnswers}
+
             </ul>
           </td>
           <td class="result__points">×&nbsp;100</td>
@@ -59,7 +59,7 @@ const stats = getElementFromTemplate(
           <td class="result__number">2.</td>
           <td>
             <ul class="stats">
-              ${displayRandomAnswers}
+
             </ul>
           </td>
           <td class="result__total"></td>
@@ -71,7 +71,7 @@ const stats = getElementFromTemplate(
           <td class="result__number">3.</td>
           <td colspan="2">
             <ul class="stats">
-             ${displayRandomAnswers}
+
             </ul>
           </td>
           <td class="result__points">×&nbsp;100</td>

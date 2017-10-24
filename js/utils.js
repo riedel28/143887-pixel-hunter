@@ -87,8 +87,8 @@ const randomizeAnswers = () => {
 
 export {randomizeAnswers};
 
-const displayRandomAnswers = state.answers.map(() => {
-  return `<li class="stats__result stats__result--${randomizeAnswers()}"></li>`;
-});
+// const displayRandomAnswers = state.answers.map(() => {
+//   return `<li class="stats__result stats__result--${randomizeAnswers()}"></li>`;
+// });
 
-export {displayRandomAnswers};
+// export {displayRandomAnswers};
