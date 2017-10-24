@@ -111,10 +111,6 @@ const generateGame3 = () => {
   return answers;
 };
 
-export {
-  state,
-  getNextScreenData,
-  generateGame1,
-  generateGame2,
-  generateGame3
-};
+export {state, generateGame1, generateGame2, generateGame3};
+
+export default {getNextScreenData};
