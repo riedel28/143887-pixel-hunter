@@ -11,7 +11,7 @@ const games = [game1, game2, game3];
 const getNextScreen = () => {
   const nextScreenData = getNextScreenData();
 
-  if (state.lives === 0) {
+  if (state.currentScreen === 10) {
     renderScreen(stats);
   }
 
