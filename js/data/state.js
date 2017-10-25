@@ -104,10 +104,7 @@ const generateState = () => {
 const state = generateState();
 
 const getNextScreenData = () => {
-  if (
-    state.currentScreen >= 0 &&
-    state.currentScreen <= state.screens.length + 1
-  ) {
+  if (state.currentScreen >= 0 && state.currentScreen < state.screens.length) {
     return state.screens[state.currentScreen++];
   }
 
