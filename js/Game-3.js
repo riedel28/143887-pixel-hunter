@@ -26,7 +26,7 @@ const getGame3 = (currentScreenState) => {
     <div class="game">
       <p class="game__task">Найдите рисунок среди изображений</p>
       <form class="game__content  game__content--triple">
-      ${displayOptions(currentScreenState)}
+      ${displayOptions(currentScreenState).join(``)}
       </form>
       <div class="stats">
         <ul class="stats">

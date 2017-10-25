@@ -7,7 +7,7 @@ const randomize = (num) => {
 };
 
 const getRandomType = () => {
-  return randomize(0);
+  return randomize(1);
 };
 
 const generateGame1 = () => {
@@ -84,7 +84,7 @@ const generateScreens = () => {
   const screens = [];
 
   for (let i = 0; i < 10; i++) {
-    screens.push(games[randomize(1)]());
+    screens.push(games[randomize(2)]());
   }
 
   return screens;
@@ -97,15 +97,18 @@ const generateState = () => {
     answers: [],
     answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
     screens: generateScreens(),
-    currentScreen: 1
+    currentScreen: 0
   };
 };
 
 const state = generateState();
 
 const getNextScreenData = () => {
-  if (state.currentScreen > 0 && state.currentScreen < state.screens.length) {
-    return state.screens[++state.currentScreen];
+  if (
+    state.currentScreen >= 0 &&
+    state.currentScreen <= state.screens.length + 1
+  ) {
+    return state.screens[state.currentScreen++];
   }
 
   return false;
