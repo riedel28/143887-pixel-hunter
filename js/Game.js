@@ -11,11 +11,11 @@ const games = [game1, game2, game3];
 const getNextScreen = () => {
   const nextScreenData = getNextScreenData();
 
-  if (!nextScreenData) {
+  if (nextScreenData === false) {
     renderScreen(stats);
+  } else {
+    renderScreen(games[nextScreenData.type - 1](nextScreenData));
   }
-
-  renderScreen(games[nextScreenData.type - 1](nextScreenData));
 };
 
 export default getNextScreen;
