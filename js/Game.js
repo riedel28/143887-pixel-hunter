@@ -15,7 +15,7 @@ const getNextScreen = () => {
     renderScreen(stats);
   }
 
-  renderScreen(games[nextScreenData.type - 1]);
+  renderScreen(games[nextScreenData.type - 1](nextScreenData));
 };
 
 export default getNextScreen;

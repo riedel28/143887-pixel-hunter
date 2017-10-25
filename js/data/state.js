@@ -84,7 +84,7 @@ const generateScreens = () => {
   const screens = [];
 
   for (let i = 0; i < 10; i++) {
-    screens.push(games[0]);
+    screens.push(games[randomize(1)]());
   }
 
   return screens;
@@ -97,7 +97,7 @@ const generateState = () => {
     answers: [],
     answersTypes: [`fast`, `correct`, `wrong`, `unknown`, `slow`],
     screens: generateScreens(),
-    currentScreen: 0
+    currentScreen: 1
   };
 };
 

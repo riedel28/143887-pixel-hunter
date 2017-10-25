@@ -5,7 +5,7 @@ import {
   // displayRandomAnswers
 } from "./utils";
 
-import getNextScreen from "./Game";
+import getReallyNextScreen from "./Game";
 
 import greeting from "./Greeting";
 import header from "./Header";
@@ -66,7 +66,7 @@ export default (currentScreenState) => {
         // answers.forEach((answer) => {
         //   // checkAnswer(answer, type);
         // });
-        getNextScreen();
+        getReallyNextScreen();
       });
     }
   };

@@ -52,7 +52,7 @@ export default (currentScreenState) => {
 
   const onFormClick = () => {
     const options = game3.querySelectorAll(`.game__option`);
-    if (options.length > 0) {
+    if (options.length > 2) {
       removeEventHandlers(handlers, () => {
         getNextScreen();
       });
