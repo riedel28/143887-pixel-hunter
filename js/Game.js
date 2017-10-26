@@ -12,7 +12,7 @@ const getNextScreen = () => {
   const nextScreenData = getNextScreenData();
 
   if (nextScreenData === false) {
-    renderScreen(stats);
+    renderScreen(stats());
   } else {
     renderScreen(games[nextScreenData.type - 1](nextScreenData));
   }

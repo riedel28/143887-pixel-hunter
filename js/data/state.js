@@ -3,7 +3,7 @@ import {getRandomImage} from "./images";
 const types = [`photo`, `painting`];
 
 const randomize = (num) => {
-  return Math.floor(Math.random() * num + 1);
+  return Math.floor(Math.random() * num);
 };
 
 const getRandomType = () => {
@@ -84,7 +84,7 @@ const generateScreens = () => {
   const screens = [];
 
   for (let i = 0; i < 10; i++) {
-    screens.push(games[randomize(2)]());
+    screens.push(games[randomize(3)]());
   }
 
   return screens;

@@ -5,7 +5,7 @@ import {
   // displayRandomAnswers
 } from "./utils";
 
-import getReallyNextScreen from "./Game";
+import getNextScreen from "./Game";
 
 import greeting from "./Greeting";
 import header from "./Header";
@@ -13,7 +13,7 @@ import header from "./Header";
 const displayOptions = (currentScreenState) => {
   return currentScreenState.options.map((option) => {
     return `<div class="game__option">
-              <img src=${option.src} alt="Option ${option.type}">
+              <img src=${option.src} alt="Option ${option.type}" width="480" height="450">
               <label class="game__answer game__answer--photo">
               <input name="question1" type="radio" value="photo">
                 <span>Фото</span>
@@ -40,7 +40,7 @@ const getGame1 = (currentScreenState) => {
     <div class="game">
       <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
       <form class="game__content">
-        ${displayOptions(currentScreenState)}
+        ${displayOptions(currentScreenState).join(``)}
       </form>
       ${stats(currentScreenState)}
     </div>`
@@ -57,7 +57,7 @@ export default (currentScreenState) => {
   const onFormClick = () => {
     const checkedInputs = game1.querySelectorAll(`input:checked`);
 
-    if (checkedInputs.length > 1) {
+    if (checkedInputs.length > 0) {
       const answers = [];
 
       answers.push(checkedInputs.value);
@@ -66,7 +66,7 @@ export default (currentScreenState) => {
         // answers.forEach((answer) => {
         //   // checkAnswer(answer, type);
         // });
-        getReallyNextScreen();
+        getNextScreen();
       });
     }
   };
