@@ -21,7 +21,7 @@ const renderScreen = (screen) => {
   const mainScreen = document.querySelector(`.central`);
 
   mainScreen.innerHTML = ``;
-  mainScreen.appendChild(screen);
+  mainScreen.appendChild(screen.element);
 };
 
 export {renderScreen};

@@ -12,7 +12,7 @@ export default class AbstractView {
   bindHandlers() {}
 
   get element() {
-    if (!this.element) {
+    if (!this._element) {
       this._element = this.render();
       this.bindHandlers();
     }

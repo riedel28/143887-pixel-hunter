@@ -6,9 +6,12 @@ import introScreen from "./Intro";
 
 // const intro = new Intro();
 
-renderScreen(introScreen.render());
+renderScreen(introScreen);
+// introScreen.render();
 
 // document.querySelector(`.intro__asterisk`).addEventListener(`click`, () => {
 //   // console.log(`hi`);
 //   renderScreen(greeting());
 // });
+
+// console.log(introScreen);
