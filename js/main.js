@@ -1,5 +1,14 @@
 import {renderScreen} from "./utils";
 
-import intro from "./Intro";
+import introScreen from "./Intro";
 
-renderScreen(intro());
+// import greeting from "./Greeting";
+
+// const intro = new Intro();
+
+renderScreen(introScreen.render());
+
+// document.querySelector(`.intro__asterisk`).addEventListener(`click`, () => {
+//   // console.log(`hi`);
+//   renderScreen(greeting());
+// });

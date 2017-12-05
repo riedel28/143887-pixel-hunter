@@ -1,35 +1,14 @@
-import {
-  getElementFromTemplate,
-  removeEventHandlers,
-  renderScreen
-} from "./utils";
+import IntroView from "./IntroView";
 
 import greeting from "./Greeting";
 
-const intro = getElementFromTemplate(
-    `<div id="main" class="central__content">
-      <div id="intro" class="intro">
-        <h1 class="intro__asterisk">*</h1>
-        <p class="intro__motto"><sup>*</sup> Это не фото. Это рисунок маслом нидерландского художника-фотореалиста Tjalf Sparnaay.</p>
-      </div>
-    </div>`
-);
+import {renderScreen} from "./utils";
 
-const asterisk = intro.querySelector(`.intro__asterisk`);
+const introScreen = new IntroView();
 
-const handlers = [];
-
-const onAsteriskClick = () => {
-  removeEventHandlers(handlers, () => {
-    renderScreen(greeting());
-  });
+introScreen.onAsteriskClick = () => {
+  renderScreen(greeting());
+  // alert(`hi!`);
 };
 
-handlers.push({target: asterisk, type: `click`, handler: onAsteriskClick});
-
-export default () => {
-  asterisk.addEventListener(`click`, onAsteriskClick);
-  return intro;
-};
-
-
+export default introScreen;
