@@ -2,7 +2,7 @@
 
 // import greeting from "./Greeting";
 
-import AbstractView from "./AbstractView";
+import AbstractView from "./../AbstractView";
 
 export default class IntroView extends AbstractView {
   get template() {

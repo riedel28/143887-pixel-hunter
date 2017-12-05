@@ -1,6 +1,6 @@
 import {renderScreen} from "./utils";
 
-import introScreen from "./Intro";
+import introScreen from "./screens/intro/Intro";
 
 // import greeting from "./Greeting";
 
