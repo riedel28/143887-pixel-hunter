@@ -1,14 +1,17 @@
-// import {renderScreen} from "./../../utils";
+import {renderScreen} from "./../../utils";
 
 import GreetingView from "./GreetingView";
 
-// import rules from "./../../Rules";
+import rulesScreen from "./../rules/Rules";
+
+// import introScreen from "./../intro/Intro";
 
 const greetingScreen = new GreetingView();
 
 greetingScreen.onArrowClick = () => {
-  // renderScreen(rules());
+  renderScreen(rulesScreen);
   // alert(`hi!`);
+  // console.log(greetingScreen);
 };
 
 export default greetingScreen;
