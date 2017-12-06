@@ -2,12 +2,12 @@ import {renderScreen} from "./../../utils";
 
 import IntroView from "./IntroView";
 
-import greeting from "./../../Greeting";
+import greetingScreen from "../greeting/Greeting";
 
 const introScreen = new IntroView();
 
 introScreen.onAsteriskClick = () => {
-  renderScreen(greeting());
+  renderScreen(greetingScreen);
   // alert(`hi!`);
 };
 
