@@ -1,6 +1,11 @@
 import AbstractView from "../AbstractView";
 
 export default class GameOneView extends AbstractView {
+  constructor(time) {
+    super();
+    this.time = time;
+  }
+
   get template() {
     return `
     <header class="header">

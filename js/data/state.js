@@ -1,5 +1,11 @@
 import {getRandomImage} from "./images";
 
+export const gameState = {
+  time: 30,
+  lives: 3,
+  answers: []
+};
+
 const types = [`photo`, `painting`];
 
 const randomize = (num) => {
