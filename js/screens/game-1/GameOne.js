@@ -9,4 +9,6 @@ gameOneScreen.onArrowBackClick = () => {
   renderScreen(introScreen);
 };
 
+gameOneScreen.onAnswerClick = () => {};
+
 export default gameOneScreen;

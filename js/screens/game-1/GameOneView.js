@@ -1,5 +1,7 @@
 import AbstractView from "../AbstractView";
 
+import {getRandomPhoto, getRandomPainting} from "./../../data/images";
+
 export default class GameOneView extends AbstractView {
   constructor(data) {
     super();
@@ -26,7 +28,7 @@ export default class GameOneView extends AbstractView {
       <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
       <form class="game__content">
         <div class="game__option">
-          <img src="" alt="Option 1" width="480" height="450">
+          <img src=${getRandomPhoto()} alt="Option 1" width="480" height="450">
           <label class="game__answer game__answer--photo">
           <input name="question1" type="radio" value="photo">
           <span>Фото</span>
@@ -37,7 +39,7 @@ export default class GameOneView extends AbstractView {
           </label>
         </div>
         <div class="game__option">
-          <img src="" alt="Option 1" width="480" height="450">
+          <img src=${getRandomPainting()} alt="Option 1" width="480" height="450">
           <label class="game__answer game__answer--photo">
           <input name="question1" type="radio" value="photo">
           <span>Фото</span>
@@ -60,10 +62,17 @@ export default class GameOneView extends AbstractView {
     // const game1 = getGame1(currentScreenState);
     const arrowBack = this.element.querySelector(`.header__back`);
     const form = this.element.querySelector(`.game__content`);
+    const inputs = this.element.querySelector(`input`);
 
     form.addEventListener(`click`, this.onFormClick);
     arrowBack.addEventListener(`click`, this.onArrowBackClick);
+
+    Array.from(inputs).map((input) =>
+      input.addEventListener(`change`, this.onAnswerClick)
+    );
   }
 
   onArrowBackClick() {}
+
+  onAnswerClick() {}
 }
