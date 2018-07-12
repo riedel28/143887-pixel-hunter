@@ -1,3 +1,4 @@
+import footerTemplate from "../../Footer";
 import AbstractView from "../AbstractView";
 
 export default class GameOneView extends AbstractView {
@@ -32,7 +33,9 @@ export default class GameOneView extends AbstractView {
 
         </ul>
       </div>
-    </div>`;
+    </div>
+    ${footerTemplate}
+    `;
   }
 
   bindHandlers() {

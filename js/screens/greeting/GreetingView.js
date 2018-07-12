@@ -7,6 +7,8 @@
 // import rules from "./Rules";
 import AbstractView from "./../AbstractView";
 
+import footerTemplate from "../../Footer";
+
 const content = {
   heading: `Лучшие художники-фотореалисты бросают&nbsp;тебе&nbsp;вызов!`,
   description: `Правила игры просты.<br>
@@ -32,15 +34,17 @@ const content = {
 
 export default class GreetingView extends AbstractView {
   get template() {
-    return `<div class="greeting central--blur">
-    <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
-    <h1 class="greeting__asterisk">*</h1>
-    <div class="greeting__challenge">
-      <h3>${content.heading}</h3>
-      <p>${content.description}</p>
+    return `
+    <div class="greeting central--blur">
+      <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
+        <h1 class="greeting__asterisk">*</h1>
+        <div class="greeting__challenge">
+        <h3>${content.heading}</h3>
+        <p>${content.description}</p>
+      </div>
+      <div class="greeting__continue"><span><img src="img/arrow_right.svg" width="64" height="64" alt="Next"></span></div>
     </div>
-    <div class="greeting__continue"><span><img src="img/arrow_right.svg" width="64" height="64" alt="Next"></span></div>
-  </div>`;
+    ${footerTemplate}`;
   }
 
   bindHandlers() {

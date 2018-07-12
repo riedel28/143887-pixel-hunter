@@ -1,6 +1,10 @@
+import footerTemplate from "../../Footer";
 import AbstractView from "../AbstractView";
 
-import {getRandomPhoto, getRandomPainting} from "./../../data/images";
+import {
+  getRandomPhoto,
+  getRandomPainting
+} from "./../../data/images";
 
 export default class GameOneView extends AbstractView {
   constructor(data) {
@@ -55,7 +59,9 @@ export default class GameOneView extends AbstractView {
 
         </ul>
       </div>
-    </div>`;
+    </div>
+    ${footerTemplate}
+    `;
   }
 
   bindHandlers() {
