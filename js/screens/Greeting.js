@@ -1,8 +1,8 @@
-import {renderScreen} from "./../../utils";
+import {renderScreen} from "./../utils";
 
-import GreetingView from "./GreetingView";
+import GreetingView from "./../views/GreetingView";
 
-import rulesScreen from "./../rules/Rules";
+import rulesScreen from "./Rules";
 
 // import introScreen from "./../intro/Intro";
 

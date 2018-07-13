@@ -1,7 +1,7 @@
-import {renderScreen} from "../../utils";
-import GameOneView from "./GameOneView";
+import {renderScreen} from "./../utils";
+import GameOneView from "./../views/GameOneView";
 
-import introScreen from "./../intro/Intro";
+import introScreen from "./Intro";
 
 const gameOneScreen = new GameOneView();
 

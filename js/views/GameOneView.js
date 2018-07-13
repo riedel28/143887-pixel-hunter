@@ -1,10 +1,7 @@
-import footerTemplate from "../../Footer";
-import AbstractView from "../AbstractView";
+import footerTemplate from "./../templates/Footer";
+import AbstractView from "./AbstractView";
 
-import {
-  getRandomPhoto,
-  getRandomPainting
-} from "./../../data/images";
+import {getRandomPhoto, getRandomPainting} from "./../data/images";
 
 export default class GameOneView extends AbstractView {
   constructor(data) {

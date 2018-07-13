@@ -1,9 +1,9 @@
-import {renderScreen} from "./../../utils";
+import {renderScreen} from "./../utils";
 
-import RulesView from "./RulesView";
+import RulesView from "./../views/RulesView";
 
-import introScreen from "./../intro/Intro";
-import gameOneScreen from "./../game-1/GameOne";
+import introScreen from "./Intro";
+import gameOneScreen from "./GameOne";
 
 const rulesScreen = new RulesView();
 

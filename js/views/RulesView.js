@@ -3,8 +3,9 @@
 //   removeEventHandlers,
 //   renderScreen
 // } from "./utils";
-import footerTemplate from "../../Footer";
-import AbstractView from "./../AbstractView";
+import footerTemplate from "./../templates/Footer";
+
+import AbstractView from "./AbstractView";
 
 // const isEmpty = () => nameField.value === ``;
 

@@ -1,8 +1,8 @@
-import {renderScreen} from "./../../utils";
+import {renderScreen} from "./../utils";
 
-import IntroView from "./IntroView";
+import IntroView from "./../views/IntroView";
 
-import greetingScreen from "../greeting/Greeting";
+import greetingScreen from "./Greeting";
 
 const introScreen = new IntroView();
 

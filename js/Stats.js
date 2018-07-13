@@ -5,7 +5,7 @@ import {
   // displayRandomAnswers
 } from "./utils";
 
-import greeting from "./Greeting";
+import greeting from "./screens/Greeting";
 
 const stats = getElementFromTemplate(
     `<header class="header">
@@ -101,7 +101,11 @@ const onArrowBackClick = () => {
   });
 };
 
-handlers.push({target: arrowBack, type: `click`, handler: onArrowBackClick});
+handlers.push({
+  target: arrowBack,
+  type: `click`,
+  handler: onArrowBackClick
+});
 
 export default () => {
   arrowBack.addEventListener(`click`, onArrowBackClick);

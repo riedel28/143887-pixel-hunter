@@ -1,4 +1,4 @@
-import footerTemplate from "../../Footer";
+import footerTemplate from "../Footer";
 import AbstractView from "../AbstractView";
 
 export default class GameOneView extends AbstractView {
