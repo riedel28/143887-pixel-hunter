@@ -1,7 +1,10 @@
 import footerTemplate from "./../templates/Footer";
 import AbstractView from "./AbstractView";
 
-import {getRandomPhoto, getRandomPainting} from "./../data/images";
+import {
+  getRandomPhoto,
+  getRandomPainting
+} from "./../data/images";
 
 export default class GameOneView extends AbstractView {
   constructor(data) {
@@ -53,7 +56,16 @@ export default class GameOneView extends AbstractView {
       </form>
       <div class="stats">
         <ul class="stats">
-
+          <li class="stats__result stats__result--fast"></li>
+          <li class="stats__result stats__result--slow"></li>
+          <li class="stats__result stats__result--wrong"></li>
+          <li class="stats__result stats__result--unknown"></li>
+          <li class="stats__result stats__result--fast"></li>
+          <li class="stats__result stats__result--slow"></li>
+          <li class="stats__result stats__result--wrong"></li>
+          <li class="stats__result stats__result--unknown"></li>
+          <li class="stats__result stats__result--slow"></li>
+          <li class="stats__result stats__result--fast"></li>
         </ul>
       </div>
     </div>
@@ -65,12 +77,13 @@ export default class GameOneView extends AbstractView {
     // const game1 = getGame1(currentScreenState);
     const arrowBack = this.element.querySelector(`.header__back`);
     const form = this.element.querySelector(`.game__content`);
-    const inputs = this.element.querySelector(`input`);
+    // const inputs = this.element.querySelector(`label`);
+    const inputs = form.querySelectorAll(`input[name=question1]`);
 
-    form.addEventListener(`click`, this.onFormClick);
+    // form.addEventListener(`click`, this.onFormClick);
     arrowBack.addEventListener(`click`, this.onArrowBackClick);
 
-    Array.from(inputs).map((input) =>
+    [...inputs].forEach((input) =>
       input.addEventListener(`change`, this.onAnswerClick)
     );
   }

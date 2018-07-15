@@ -1,4 +1,4 @@
-const images = {
+export const images = {
   paintings: [
     `https://k42.kn3.net/D2F0370D6.jpg`,
     `https://k42.kn3.net/CF42609C8.jpg`,
@@ -31,4 +31,8 @@ const getRandomImage = (type) => {
   return false;
 };
 
-export {getRandomPhoto, getRandomPainting, getRandomImage};
+export {
+  getRandomPhoto,
+  getRandomPainting,
+  getRandomImage
+};
