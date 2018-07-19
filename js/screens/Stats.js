@@ -117,10 +117,12 @@ import StatsView from "./../views/StatsView";
 
 import introScreen from "./Intro";
 
-const statsScreen = new StatsView();
+export default () => {
+  const statsScreen = new StatsView();
 
-statsScreen.onArrowBackClick = () => {
-  renderScreen(introScreen);
+  statsScreen.onArrowBackClick = () => {
+    renderScreen(introScreen());
+  };
+
+  return statsScreen;
 };
-
-export default statsScreen;

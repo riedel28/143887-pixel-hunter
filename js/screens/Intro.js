@@ -4,11 +4,12 @@ import IntroView from "./../views/IntroView";
 
 import greetingScreen from "./Greeting";
 
-const introScreen = new IntroView();
+export default () => {
+  const introScreen = new IntroView();
 
-introScreen.onAsteriskClick = () => {
-  renderScreen(greetingScreen);
-  // alert(`hi!`);
+  introScreen.onAsteriskClick = () => {
+    renderScreen(greetingScreen());
+  };
+
+  return introScreen;
 };
-
-export default introScreen;
