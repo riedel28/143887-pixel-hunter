@@ -2,9 +2,9 @@ import {
   getRandomImage
 } from "./images";
 
-export const gameState = {
+export const initialState = {
   time: 30,
-  lives: 3,
+  lives: 2,
   answers: []
 };
 
