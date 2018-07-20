@@ -3,6 +3,7 @@ import {
 } from "./images";
 
 export const initialState = {
+  level: `one-of-two`,
   time: 30,
   lives: 2,
   answers: []
@@ -11,24 +12,35 @@ export const initialState = {
 export const gameScreens = {
   'one-of-two': {
     task: `Угадайте для каждого изображения фото или рисунок?`,
-    options: [
-      getRandomImage(`photo`),
-      getRandomImage(`painting`)
+    options: [{
+      type: `painting`,
+      src: `https://k42.kn3.net/D2F0370D6.jpg`
+    },
+    {
+      type: `photo`,
+      src: `http://i.imgur.com/1KegWPz.jpg`
+    }
     ]
   },
   'tinder-like': {
     task: `Угадай, фото или рисунок?`,
-    options: [
-      getRandomImage(`photo`)
-    ]
+    options: [{
+      type: `photo`,
+      src: `https://i.imgur.com/DiHM5Zb.jpg`
+    }]
   },
   'one-of-three': {
     task: `Угадай, фото или рисунок?`,
-    options: [
-      getRandomImage(`painting`),
-      getRandomImage(`painting`),
-      getRandomImage(`photo`),
-    ]
+    options: [{
+      type: `painting`,
+      src: `http://i.imgur.com/1KegWPz.jpg`
+    }, {
+      type: `painting`,
+      src: `https://k42.kn3.net/CF42609C8.jpg`
+    }, {
+      type: `photo`,
+      src: `http://i.imgur.com/DKR1HtB.jpg`
+    }]
   }
 };
 
