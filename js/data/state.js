@@ -1,9 +1,35 @@
-import {getRandomImage} from "./images";
+import {
+  getRandomImage
+} from "./images";
 
 export const gameState = {
   time: 30,
   lives: 3,
   answers: []
+};
+
+export const gameScreens = {
+  'one-of-two': {
+    task: `Угадайте для каждого изображения фото или рисунок?`,
+    options: [
+      getRandomImage(`photo`),
+      getRandomImage(`painting`)
+    ]
+  },
+  'tinder-like': {
+    task: `Угадай, фото или рисунок?`,
+    options: [
+      getRandomImage(`photo`)
+    ]
+  },
+  'one-of-three': {
+    task: `Угадай, фото или рисунок?`,
+    options: [
+      getRandomImage(`painting`),
+      getRandomImage(`painting`),
+      getRandomImage(`photo`),
+    ]
+  }
 };
 
 const types = [`photo`, `painting`];
@@ -27,15 +53,14 @@ const generateGame1 = () => {
       );
     },
     type: 1,
-    options: [
-      {
-        type: types[randomType],
-        src: getRandomImage(types[randomType])
-      },
-      {
-        type: types[1 - randomType],
-        src: getRandomImage(types[1 - randomType])
-      }
+    options: [{
+      type: types[randomType],
+      src: getRandomImage(types[randomType])
+    },
+    {
+      type: types[1 - randomType],
+      src: getRandomImage(types[1 - randomType])
+    }
     ]
   };
 };
@@ -47,12 +72,10 @@ const generateGame2 = () => {
       return type === this.options[0].type;
     },
     type: 2,
-    options: [
-      {
-        type: types[randomType],
-        src: getRandomImage(types[randomType])
-      }
-    ]
+    options: [{
+      type: types[randomType],
+      src: getRandomImage(types[randomType])
+    }]
   };
 };
 
