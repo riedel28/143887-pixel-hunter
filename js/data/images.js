@@ -11,28 +11,43 @@ export const images = {
   ]
 };
 
+
 const getRandomPhoto = () => {
-  return images.photos[Math.floor(Math.random() * images.photos.length)];
+  const src = images.photos[Math.floor(Math.random() * images.photos.length)];
+
+  return {
+    type: `photo`,
+    src
+  };
 };
 
 const getRandomPainting = () => {
-  return images.paintings[Math.floor(Math.random() * images.paintings.length)];
+  const src = images.paintings[Math.floor(Math.random() * images.paintings.length)];
+
+  return {
+    type: `painting`,
+    src
+  };
 };
 
-const getRandomImage = (type) => {
-  if (type === `photo`) {
-    return getRandomPhoto();
-  }
+export const getRandomImage = () => {
+  const randomImages = [getRandomPhoto(), getRandomPainting()];
 
-  if (type === `painting`) {
-    return getRandomPainting();
-  }
+  const randomize = (num) => {
+    return Math.floor(Math.random() * num);
+  };
 
-  return false;
+  return randomImages[randomize(randomImages.length)];
 };
 
-export {
-  getRandomPhoto,
-  getRandomPainting,
-  getRandomImage
-};
+// const getRandomImage = (type) => {
+//   if (type === `photo`) {
+//     return getRandomPhoto();
+//   }
+
+//   if (type === `painting`) {
+//     return getRandomPainting();
+//   }
+
+//   return false;
+// };
