@@ -6,7 +6,7 @@ export const initialState = {
   level: `one-of-two`,
   time: 30,
   lives: 2,
-  answers: []
+  answers: [`slow`, `wrong`, `unknown`, `fast`, `unknown`, `slow`, `wrong`, `unknown`, `fast`, `slow`]
 };
 
 export const gameScreens = {

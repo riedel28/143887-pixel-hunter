@@ -1,5 +1,9 @@
 import footerTemplate from "./../templates/Footer";
+import statsBarTemplate from "./../templates/StatsBar";
 import AbstractView from "./AbstractView";
+import {
+  initialState
+} from "../data/state";
 
 export default class IntroView extends AbstractView {
   get template() {
@@ -17,18 +21,7 @@ export default class IntroView extends AbstractView {
       <tr>
         <td class="result__number">1.</td>
         <td colspan="2">
-        <ul class="stats">
-        <li class="stats__result stats__result--fast"></li>
-        <li class="stats__result stats__result--slow"></li>
-        <li class="stats__result stats__result--wrong"></li>
-        <li class="stats__result stats__result--unknown"></li>
-        <li class="stats__result stats__result--fast"></li>
-        <li class="stats__result stats__result--slow"></li>
-        <li class="stats__result stats__result--wrong"></li>
-        <li class="stats__result stats__result--unknown"></li>
-        <li class="stats__result stats__result--slow"></li>
-        <li class="stats__result stats__result--fast"></li>
-      </ul>
+          ${statsBarTemplate(initialState)}
         </td>
         <td class="result__points">×&nbsp;100</td>
         <td class="result__total">900</td>
@@ -62,18 +55,7 @@ export default class IntroView extends AbstractView {
       <tr>
         <td class="result__number">2.</td>
         <td>
-        <ul class="stats">
-        <li class="stats__result stats__result--fast"></li>
-        <li class="stats__result stats__result--slow"></li>
-        <li class="stats__result stats__result--wrong"></li>
-        <li class="stats__result stats__result--unknown"></li>
-        <li class="stats__result stats__result--fast"></li>
-        <li class="stats__result stats__result--slow"></li>
-        <li class="stats__result stats__result--wrong"></li>
-        <li class="stats__result stats__result--unknown"></li>
-        <li class="stats__result stats__result--slow"></li>
-        <li class="stats__result stats__result--fast"></li>
-      </ul>
+          ${statsBarTemplate(initialState)}
         </td>
         <td class="result__total"></td>
         <td class="result__total  result__total--final">fail</td>
@@ -83,20 +65,7 @@ export default class IntroView extends AbstractView {
       <tr>
         <td class="result__number">3.</td>
         <td colspan="2">
-
-          <ul class="stats">
-          <li class="stats__result stats__result--fast"></li>
-          <li class="stats__result stats__result--slow"></li>
-          <li class="stats__result stats__result--wrong"></li>
-          <li class="stats__result stats__result--unknown"></li>
-          <li class="stats__result stats__result--fast"></li>
-          <li class="stats__result stats__result--slow"></li>
-          <li class="stats__result stats__result--wrong"></li>
-          <li class="stats__result stats__result--unknown"></li>
-          <li class="stats__result stats__result--slow"></li>
-          <li class="stats__result stats__result--fast"></li>
-
-          </ul>
+          ${statsBarTemplate(initialState)}
         </td>
         <td class="result__points">×&nbsp;100</td>
         <td class="result__total">900</td>

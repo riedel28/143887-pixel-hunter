@@ -1,9 +1,11 @@
 import footerTemplate from "./../templates/Footer";
 import headerTemplate from './../templates/Header';
+import statsBarTemplate from "./../templates/StatsBar";
 import AbstractView from "./AbstractView";
 import {
   initialState
 } from "./../data/state";
+
 
 import {
   getRandomPhoto,
@@ -46,18 +48,7 @@ export default class GameOneView extends AbstractView {
         </div>
       </form>
       <div class="stats">
-        <ul class="stats">
-          <li class="stats__result stats__result--fast"></li>
-          <li class="stats__result stats__result--slow"></li>
-          <li class="stats__result stats__result--wrong"></li>
-          <li class="stats__result stats__result--unknown"></li>
-          <li class="stats__result stats__result--fast"></li>
-          <li class="stats__result stats__result--slow"></li>
-          <li class="stats__result stats__result--wrong"></li>
-          <li class="stats__result stats__result--unknown"></li>
-          <li class="stats__result stats__result--slow"></li>
-          <li class="stats__result stats__result--fast"></li>
-        </ul>
+        ${statsBarTemplate(initialState)}
       </div>
     </div>
     ${footerTemplate}
