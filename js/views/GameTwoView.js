@@ -2,12 +2,13 @@ import footerTemplate from "./../templates/Footer";
 import statsBarTemplate from "./../templates/StatsBar";
 import AbstractView from "./AbstractView";
 import {
-  initialState
+  initialState,
+  gameScreens
 } from "./../data/state";
 
-import {
-  getRandomPhoto
-} from "./../data/images";
+// import {
+//   getRandomImage
+// } from "./../data/images";
 
 export default class GameOneView extends AbstractView {
   constructor(data) {
@@ -16,6 +17,10 @@ export default class GameOneView extends AbstractView {
   }
 
   get template() {
+    const {
+      options
+    } = gameScreens[`tinder-like`];
+
     return `
     <header class="header">
       <div class="header__back">
@@ -35,7 +40,7 @@ export default class GameOneView extends AbstractView {
       <p class="game__task">Угадай, фото или рисунок?</p>
       <form class="game__content  game__content--wide">
         <div class = "game__option">
-                   <img src=${getRandomPhoto()} alt="Option" width="705" height="455">
+                   <img src=${options[0].src} alt="Option" width="705" height="455">
                      <label class="game__answer  game__answer--photo">
                      <input name="question1" type="radio" value="photo">
                    <span>Фото</span>

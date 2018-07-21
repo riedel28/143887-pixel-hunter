@@ -2,12 +2,12 @@ import statsBarTemplate from "./../templates/StatsBar";
 import footerTemplate from "./../templates/Footer";
 import AbstractView from "./AbstractView";
 import {
-  initialState
+  initialState,
+  gameScreens
 } from "./../data/state";
-import {
-  getRandomPhoto,
-  getRandomPainting
-} from "./../data/images";
+// import {
+//   getRandomImage
+// } from "./../data/images";
 
 export default class GameOneView extends AbstractView {
   constructor(data) {
@@ -16,6 +16,9 @@ export default class GameOneView extends AbstractView {
   }
 
   get template() {
+    const {
+      options
+    } = gameScreens[`one-of-three`];
     return `
     <header class="header">
       <div class="header__back">
@@ -35,13 +38,13 @@ export default class GameOneView extends AbstractView {
       <p class="game__task">Угадай, фото или рисунок?</p>
       <form class="game__content  game__content--triple">
         <div class="game__option">
-          <img src=${getRandomPainting()} alt="Option 1" width="304" height="455">
+          <img src=${options[0].src} alt="Option 1" width="304" height="455">
         </div>
         <div class="game__option  game__option--selected">
-          <img src=${getRandomPhoto()} alt="Option 1" width="304" height="455">
+          <img src=${options[1].src} alt="Option 1" width="304" height="455">
         </div>
         <div class="game__option">
-         <img src=${getRandomPainting()} alt="Option 1" width="304" height="455">
+         <img src=${options[2].src} alt="Option 1" width="304" height="455">
         </div>
       </form>
       <div class="stats">

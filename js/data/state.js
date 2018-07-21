@@ -12,37 +12,21 @@ export const initialState = {
 export const gameScreens = {
   'one-of-two': {
     task: `Угадайте для каждого изображения фото или рисунок?`,
-    options: [{
-      type: `painting`,
-      src: `https://k42.kn3.net/D2F0370D6.jpg`
-    },
-    {
-      type: `photo`,
-      src: `http://i.imgur.com/1KegWPz.jpg`
-    }
-    ]
+    options: [getRandomImage(), getRandomImage()]
   },
   'tinder-like': {
     task: `Угадай, фото или рисунок?`,
-    options: [{
-      type: `photo`,
-      src: `https://i.imgur.com/DiHM5Zb.jpg`
-    }]
+    options: [getRandomImage()]
   },
   'one-of-three': {
     task: `Угадай, фото или рисунок?`,
-    options: [{
-      type: `painting`,
-      src: `http://i.imgur.com/1KegWPz.jpg`
-    }, {
-      type: `painting`,
-      src: `https://k42.kn3.net/CF42609C8.jpg`
-    }, {
-      type: `photo`,
-      src: `http://i.imgur.com/DKR1HtB.jpg`
-    }]
+    options: [getRandomImage(), getRandomImage(), getRandomImage()]
   }
 };
+
+// const generateGameScreens = () => {
+
+// };
 
 const types = [`photo`, `painting`];
 
