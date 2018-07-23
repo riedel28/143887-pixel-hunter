@@ -1,5 +1,4 @@
 import footerTemplate from "./../templates/Footer";
-import headerTemplate from './../templates/Header';
 import statsBarTemplate from "./../templates/StatsBar";
 import AbstractView from "./AbstractView";
 import {
@@ -7,10 +6,8 @@ import {
   gameScreens
 } from "./../data/state";
 
-
-// import {
-//   getRandomImage
-// } from "./../data/images";
+import HeaderView from "./HeaderView";
+const headerView = new HeaderView(initialState);
 
 export default class GameOneView extends AbstractView {
   constructor(data) {
@@ -24,7 +21,7 @@ export default class GameOneView extends AbstractView {
     } = gameScreens[`one-of-two`];
 
     return `
-    ${headerTemplate(initialState)}
+    ${headerView.template}
     <div class="game">
       <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
       <form class="game__content">
