@@ -1,45 +1,54 @@
-import statsBarTemplate from "./../templates/StatsBar";
-import footerTemplate from "./../templates/Footer";
+import statsBarTemplate from "../templates/StatsBar";
+import footerTemplate from "../templates/Footer";
 import AbstractView from "./AbstractView";
 import {
-  initialState,
-  gameScreens
-} from "./../data/state";
+  gameState
+} from "../data/state";
 import HeaderView from "./HeaderView";
 
 
-const headerView = new HeaderView(initialState);
+const headerView = new HeaderView(gameState);
 // import {
 //   getRandomImage
 // } from "./../data/images";
 
 export default class GameOneView extends AbstractView {
-  constructor(data) {
+  constructor(state) {
     super();
-    this.data = data;
+    this.state = state;
+    this.currentScreen = this.state.currentScreen;
+    this.screen = this.state.screens[this.currentScreen];
+    // this.screenType = [`one-of-two`];
+
+    this.options = this.screen.options;
+    this.task = this.screen.task;
   }
 
   get template() {
-    const {
-      options
-    } = gameScreens[`one-of-three`];
+    console.log(this.state);
+    console.log(this.screen);
+
+    // console.log(generateGameScreens(5));
+    // console.log(gameScreens[`one-of-three`]);
+    // console.log(this.screens);
+    // console.log(this.currentScreen);
+
+    // const {
+    //   options
+    // } = this.state.screens[this.currentScreen];
+
+
     return `
     ${headerView.template}
     <div class="game">
-      <p class="game__task">Угадай, фото или рисунок?</p>
+      <p class="game__task">${this.task}</p>
       <form class="game__content  game__content--triple">
-        <div class="game__option">
-          <img src=${options[0].src} alt="Option 1" width="304" height="455">
-        </div>
-        <div class="game__option  game__option--selected">
-          <img src=${options[1].src} alt="Option 1" width="304" height="455">
-        </div>
-        <div class="game__option">
-         <img src=${options[2].src} alt="Option 1" width="304" height="455">
-        </div>
+        ${this.options.map((option) => `<div class="game__option">
+        <img src=${option.src} alt=${option.type} width="304" height="455">
+      </div>`).join(``)}
       </form>
       <div class="stats">
-        ${statsBarTemplate(initialState)}
+        ${statsBarTemplate(gameState)}
       </div>
     </div>
     ${footerTemplate}`;

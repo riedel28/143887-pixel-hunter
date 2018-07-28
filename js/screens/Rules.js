@@ -1,7 +1,13 @@
-import {renderScreen} from "./../utils";
-import RulesView from "./../views/RulesView";
+import {
+  renderScreen
+} from "../utils";
+import RulesView from "../views/RulesView";
 import introScreen from "./Intro";
 import gameOneScreen from "./GameOne";
+
+import {
+  gameScreens
+} from "../data/state";
 
 export default () => {
   const rulesScreen = new RulesView();

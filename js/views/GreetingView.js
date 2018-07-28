@@ -7,7 +7,7 @@
 // import rules from "./Rules";
 import AbstractView from "./AbstractView";
 
-import footerTemplate from "./../templates/Footer";
+import footerTemplate from "../templates/Footer";
 
 const content = {
   heading: `Лучшие художники-фотореалисты бросают&nbsp;тебе&nbsp;вызов!`,

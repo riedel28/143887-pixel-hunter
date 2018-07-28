@@ -112,8 +112,10 @@
 //   return stats;
 // };
 
-import {renderScreen} from "./../utils";
-import StatsView from "./../views/StatsView";
+import {
+  renderScreen
+} from "../utils";
+import StatsView from "../views/StatsView";
 
 import introScreen from "./Intro";
 

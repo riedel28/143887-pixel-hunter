@@ -1,7 +1,7 @@
 // import renderScreen from "./utils";
 
 // import greeting from "./Greeting";
-import footerTemplate from './../templates/Footer';
+import footerTemplate from '../templates/Footer';
 
 import AbstractView from "./AbstractView";
 

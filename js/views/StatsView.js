@@ -1,8 +1,8 @@
-import footerTemplate from "./../templates/Footer";
-import statsBarTemplate from "./../templates/StatsBar";
+import footerTemplate from "../templates/Footer";
+import statsBarTemplate from "../templates/StatsBar";
 import AbstractView from "./AbstractView";
 import {
-  initialState
+  gameState
 } from "../data/state";
 
 export default class IntroView extends AbstractView {
@@ -21,7 +21,7 @@ export default class IntroView extends AbstractView {
       <tr>
         <td class="result__number">1.</td>
         <td colspan="2">
-          ${statsBarTemplate(initialState)}
+          ${statsBarTemplate(gameState)}
         </td>
         <td class="result__points">×&nbsp;100</td>
         <td class="result__total">900</td>
@@ -55,7 +55,7 @@ export default class IntroView extends AbstractView {
       <tr>
         <td class="result__number">2.</td>
         <td>
-          ${statsBarTemplate(initialState)}
+          ${statsBarTemplate(gameState)}
         </td>
         <td class="result__total"></td>
         <td class="result__total  result__total--final">fail</td>
@@ -65,7 +65,7 @@ export default class IntroView extends AbstractView {
       <tr>
         <td class="result__number">3.</td>
         <td colspan="2">
-          ${statsBarTemplate(initialState)}
+          ${statsBarTemplate(gameState)}
         </td>
         <td class="result__points">×&nbsp;100</td>
         <td class="result__total">900</td>

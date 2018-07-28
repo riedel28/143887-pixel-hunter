@@ -1,6 +1,8 @@
-import {renderScreen} from "./../utils";
+import {
+  renderScreen
+} from "../utils";
 
-import IntroView from "./../views/IntroView";
+import IntroView from "../views/IntroView";
 
 import greetingScreen from "./Greeting";
 

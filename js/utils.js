@@ -6,7 +6,9 @@ const getElementFromTemplate = (markup) => {
   return element;
 };
 
-export {getElementFromTemplate};
+export {
+  getElementFromTemplate
+};
 
 const removeEventHandlers = (handlers, renderFunction) => {
   handlers.forEach((handler) => {
@@ -15,7 +17,9 @@ const removeEventHandlers = (handlers, renderFunction) => {
   renderFunction();
 };
 
-export {removeEventHandlers};
+export {
+  removeEventHandlers
+};
 
 const renderScreen = (screen) => {
   const mainScreen = document.querySelector(`.central`);
@@ -24,10 +28,19 @@ const renderScreen = (screen) => {
   mainScreen.appendChild(screen.element);
 };
 
-export {renderScreen};
+export {
+  renderScreen
+};
+
+const changeView = (n) => {
+
+}
 
 const getPointsFromAnswer = (answer) => {
-  const {time, success} = answer;
+  const {
+    time,
+    success
+  } = answer;
 
   if (success === false) {
     return 0;
@@ -60,7 +73,9 @@ const getTotalScore = (answers, lives) => {
   return totalScore;
 };
 
-export {getTotalScore};
+export {
+  getTotalScore
+};
 
 const getTimer = (timer) => {
   return {
@@ -77,15 +92,19 @@ const getTimer = (timer) => {
   };
 };
 
-export {getTimer};
+export {
+  getTimer
+};
 
 const randomizeAnswers = () => {
   return state.answersTypes[
-      Math.floor(Math.random() * state.answersTypes.length)
+    Math.floor(Math.random() * state.answersTypes.length)
   ];
 };
 
-export {randomizeAnswers};
+export {
+  randomizeAnswers
+};
 
 // const displayRandomAnswers = state.answers.map(() => {
 //   return `<li class="stats__result stats__result--${randomizeAnswers()}"></li>`;
