@@ -1,9 +1,6 @@
 import {
   getRandomImage
 } from "./images";
-import {
-  renderScreen
-} from "../utils";
 
 
 export const gameScreens = [{

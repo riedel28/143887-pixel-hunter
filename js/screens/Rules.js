@@ -1,13 +1,9 @@
 import {
-  renderScreen
+  renderScreen,
+  changeView
 } from "../utils";
 import RulesView from "../views/RulesView";
 import introScreen from "./Intro";
-import gameOneScreen from "./GameOne";
-
-import {
-  gameScreens
-} from "../data/state";
 
 export default () => {
   const rulesScreen = new RulesView();
@@ -18,8 +14,7 @@ export default () => {
 
   rulesScreen.onFormSubmit = (e) => {
     e.preventDefault();
-    // renderScreen(game1());
-    renderScreen(gameOneScreen());
+    changeView(`one-of-two`);
   };
 
   return rulesScreen;

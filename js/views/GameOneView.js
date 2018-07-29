@@ -12,7 +12,7 @@ export default class GameOneView extends AbstractView {
   constructor(state) {
     super();
     this.state = state;
-    this.currentScreen = this.state.currentScreen;
+    this.currentScreen = 0;
     this.screen = this.state.screens[this.currentScreen];
     // this.screenType = [`one-of-two`];
 

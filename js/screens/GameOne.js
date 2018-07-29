@@ -1,12 +1,11 @@
 import {
-  renderScreen
+  renderScreen,
+  changeView
 } from "../utils";
-import GameOneView from "../views/GameOneView";
+import GameOneView from "./../views/GameOneView";
 import {
   gameState
 } from "../data/state";
-import gameTwoScreen from "./GameTwo";
-import gameThreeScreen from "./GameThree";
 
 import introScreen from "./Intro";
 
@@ -21,27 +20,10 @@ export default () => {
 
   gameState.currentScreen = 0;
 
-  const screenTypes = {
-    [`one-of-two`]: 0,
-    [`tinder-like`]: 1,
-    [`one-of-three`]: 2
-  };
 
-
-  const changeView = (num) => {
-    if (screenTypes[`one-of-two`] === num) {
-      return gameOneScreen;
-    } else if (screenTypes[`tinder-like`] === num) {
-      return gameTwoScreen();
-    } else if (screenTypes[`one-of-three`] === num) {
-      return gameThreeScreen();
-    }
-    return 123;
-  };
-
-  console.log(changeView(0));
-  console.log(changeView(1));
-  console.log(changeView(2));
+  // console.log(changeView(`tinder-like`));
+  // console.log(changeView(1));
+  // console.log(changeView(2));
 
   gameOneScreen.onAnswerClick = (e) => {
     // console.log(e.target.value);
@@ -50,6 +32,7 @@ export default () => {
     // if (image.alt === e.target.value) {
     //   arr.push(e.target.value);
     // }
+    // console.log(gameOneScreen);
 
 
     // arr.push(e.target.value);
@@ -60,8 +43,8 @@ export default () => {
     // console.log(arr);
     if (arr.length > 1) {
       gameState.currentScreen++;
-      console.log(gameState.currentScreen);
-      renderScreen(gameTwoScreen());
+      // console.log(gameState.currentScreen);
+      changeView(`tinder-like`);
 
     }
   };

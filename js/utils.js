@@ -1,4 +1,9 @@
-import state from "./data/state";
+// import state from "./data/state";
+
+import gameOneScreen from "./screens/GameOne";
+import gameTwoScreen from "./screens/GameTwo";
+import gameThreeScreen from "./screens/GameThree";
+
 
 const getElementFromTemplate = (markup) => {
   const element = document.createElement(`div`);
@@ -21,20 +26,32 @@ export {
   removeEventHandlers
 };
 
-const renderScreen = (screen) => {
+export const renderScreen = (screen) => {
   const mainScreen = document.querySelector(`.central`);
 
   mainScreen.innerHTML = ``;
   mainScreen.appendChild(screen.element);
 };
 
-export {
-  renderScreen
+// const screenTypes = {
+//   [`one-of-two`]: 0,
+//   [`tinder-like`]: 1,
+//   [`one-of-three`]: 2
+// };
+
+export const changeView = (screenType) => {
+  switch (screenType) {
+    case `one-of-two`:
+      renderScreen(gameOneScreen());
+      break;
+    case `tinder-like`:
+      renderScreen(gameTwoScreen());
+      break;
+    case `one-of-three`:
+      renderScreen(gameThreeScreen());
+      break;
+  }
 };
-
-const changeView = (n) => {
-
-}
 
 const getPointsFromAnswer = (answer) => {
   const {
@@ -96,15 +113,15 @@ export {
   getTimer
 };
 
-const randomizeAnswers = () => {
-  return state.answersTypes[
-    Math.floor(Math.random() * state.answersTypes.length)
-  ];
-};
+// const randomizeAnswers = () => {
+//   return state.answersTypes[
+//       Math.floor(Math.random() * state.answersTypes.length)
+//   ];
+// };
 
-export {
-  randomizeAnswers
-};
+// export {
+//   randomizeAnswers
+// };
 
 // const displayRandomAnswers = state.answers.map(() => {
 //   return `<li class="stats__result stats__result--${randomizeAnswers()}"></li>`;

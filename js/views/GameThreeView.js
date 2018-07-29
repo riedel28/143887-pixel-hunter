@@ -12,32 +12,18 @@ const headerView = new HeaderView(gameState);
 //   getRandomImage
 // } from "./../data/images";
 
-export default class GameOneView extends AbstractView {
+export default class GameThreeView extends AbstractView {
   constructor(state) {
     super();
     this.state = state;
-    this.currentScreen = this.state.currentScreen;
+    this.currentScreen = 2;
     this.screen = this.state.screens[this.currentScreen];
-    // this.screenType = [`one-of-two`];
 
     this.options = this.screen.options;
     this.task = this.screen.task;
   }
 
   get template() {
-    console.log(this.state);
-    console.log(this.screen);
-
-    // console.log(generateGameScreens(5));
-    // console.log(gameScreens[`one-of-three`]);
-    // console.log(this.screens);
-    // console.log(this.currentScreen);
-
-    // const {
-    //   options
-    // } = this.state.screens[this.currentScreen];
-
-
     return `
     ${headerView.template}
     <div class="game">
