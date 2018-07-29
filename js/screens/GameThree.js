@@ -1,13 +1,14 @@
 import {
-  renderScreen
-} from "../utils";
+  renderScreen,
+  changeView
+} from "./../utils";
 import GameThreeView from "./../views/GameThreeView";
 import statsScreen from "./Stats";
 
 import introScreen from "./Intro";
 import {
   gameState
-} from "../data/state";
+} from "./../data/state";
 
 export default () => {
   const gameThreeScreen = new GameThreeView(gameState);
@@ -19,12 +20,19 @@ export default () => {
   let arr = [];
 
   gameThreeScreen.onAnswerClick = (e) => {
-    // console.log(e.target.value);
+    const {
+      type: nextGameScreen
+    } = gameState.screens[gameState.currentScreen];
 
     arr.push(e.target.value);
     if (arr.length > 0) {
       gameState.currentScreen++;
-      renderScreen(statsScreen());
+
+      if (gameState.currentScreen >= gameState.screens.length) {
+        renderScreen(statsScreen());
+      } else {
+        changeView(nextGameScreen);
+      }
     }
   };
 
