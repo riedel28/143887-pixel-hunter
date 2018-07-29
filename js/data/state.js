@@ -40,7 +40,7 @@ export const gameState = {
   currentScreen: 0,
   time: 30,
   lives: 2,
-  answers: [`slow`, `wrong`, `unknown`, `fast`, `unknown`, `slow`, `wrong`, `unknown`, `fast`, `slow`],
+  answers: [`unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`],
   screens: [{
     type: `one-of-two`,
     task: `Угадайте для каждого изображения фото или рисунок?`,

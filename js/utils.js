@@ -53,7 +53,7 @@ export const changeView = (screenType) => {
   }
 };
 
-const getPointsFromAnswer = (answer) => {
+export const getPointsFromAnswer = (answer) => {
   const {
     time,
     success
@@ -74,7 +74,7 @@ const getPointsFromAnswer = (answer) => {
   }
 };
 
-const getTotalScore = (answers, lives) => {
+export const getTotalScore = (answers, lives) => {
   if (answers.length < 10) {
     return -1;
   }
@@ -90,9 +90,6 @@ const getTotalScore = (answers, lives) => {
   return totalScore;
 };
 
-export {
-  getTotalScore
-};
 
 const getTimer = (timer) => {
   return {

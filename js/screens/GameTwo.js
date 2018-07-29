@@ -1,6 +1,7 @@
 import {
   renderScreen,
-  changeView
+  changeView,
+  getPointsFromAnswer
 } from "./../utils";
 import GameTwoView from "./../views/GameTwoView";
 import introScreen from "./Intro";
@@ -22,8 +23,37 @@ export default () => {
       type: nextGameScreen
     } = gameState.screens[gameState.currentScreen];
 
+    const answer = {
+      time: 30
+    };
+
+    if (e.target.value === gameTwoScreen.options[0].type) {
+      answer.success = true;
+    } else {
+      answer.success = false;
+    }
+    arr.push(answer);
+
+    const screenAnswersPoints = arr.map((it) => getPointsFromAnswer(it));
+
+
+    // console.log(arr);
+
+    const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
+      return sum + answerPoints;
+    }, 0);
+
+    const updateStateAnswers = () => {
+      gameState.answers.pop();
+      return sumAllAnswersPoints === 100 ? gameState.answers.unshift(`correct`) : gameState.answers.unshift(`wrong`);
+    };
+
+
     arr.push(e.target.value);
     if (arr.length > 0) {
+
+      updateStateAnswers();
+
       gameState.currentScreen++;
       changeView(nextGameScreen);
     }

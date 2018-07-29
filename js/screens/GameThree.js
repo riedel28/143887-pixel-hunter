@@ -1,6 +1,7 @@
 import {
   renderScreen,
-  changeView
+  changeView,
+  getPointsFromAnswer
 } from "./../utils";
 import GameThreeView from "./../views/GameThreeView";
 import statsScreen from "./Stats";
@@ -24,12 +25,37 @@ export default () => {
       type: nextGameScreen
     } = gameState.screens[gameState.currentScreen];
 
-    arr.push(e.target.value);
+    const answer = {
+      time: 30
+    };
+
+    if (e.target.value === gameThreeScreen.options[0].type) {
+      answer.success = true;
+    } else {
+      answer.success = false;
+    }
+    arr.push(answer);
+
+    const screenAnswersPoints = arr.map((it) => getPointsFromAnswer(it));
+
+    const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
+      return sum + answerPoints;
+    }, 0);
+
+    const updateStateAnswers = () => {
+      gameState.answers.pop();
+      return sumAllAnswersPoints === 100 ? gameState.answers.unshift(`correct`) : gameState.answers.unshift(`wrong`);
+    };
+
+
     if (arr.length > 0) {
+      updateStateAnswers();
+
       gameState.currentScreen++;
 
       if (gameState.currentScreen >= gameState.screens.length) {
         renderScreen(statsScreen());
+        // console.log(getTotalScore(gameState.answers, gameState.lives));
       } else {
         changeView(nextGameScreen);
       }

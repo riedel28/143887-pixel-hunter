@@ -22,19 +22,6 @@ export default class GameOneView extends AbstractView {
   }
 
   get template() {
-    // console.log(this.state);
-    // console.log(this.screen);
-
-    // console.log(generateGameScreens(5));
-    // console.log(gameScreens[`one-of-three`]);
-    // console.log(this.screens);
-    // console.log(this.currentScreen);
-
-    // const {
-    //   options
-    // } = this.state.screens[this.currentScreen];
-
-
     return `
     ${headerView.template}
     <div class="game">
