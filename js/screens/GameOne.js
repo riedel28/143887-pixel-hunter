@@ -17,7 +17,7 @@ export default () => {
     renderScreen(introScreen());
   };
 
-  let arr = [];
+  const screenAnswers = [];
 
   gameOneScreen.onAnswerClick = (e) => {
     const {
@@ -25,34 +25,43 @@ export default () => {
     } = gameState.screens[gameState.currentScreen];
 
 
-    const answer = {
-      time: 30
-    };
-
-    if (e.target.value === gameOneScreen.options[0].type) {
-      answer.success = true;
-    } else {
-      answer.success = false;
-    }
-    arr.push(answer);
-
-    const screenAnswersPoints = arr.map((it) => getPointsFromAnswer(it));
+    // const answer = {
+    //   time: 30
+    // };
 
 
-    // console.log(arr);
+    // if (e.target.value === gameOneScreen.options[0].type) {
+    //   answer.success === true;
+    // } else {
+    //   answer.success = false;
+    // }
+
+    // const success = e.target.value === gameOneScreen.options[0].type ? true : false;
+
+    const success = e.target.value && gameOneScreen.options[0].type;
+
+
+    screenAnswers.push({
+      time: 30,
+      success
+    });
+
+    // console.dir(screenAnswers);
+
+    const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer));
 
     const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
       return sum + answerPoints;
     }, 0);
 
-    const updateStateAnswers = () => {
+    const updateStats = () => {
       gameState.stats.pop();
       return sumAllAnswersPoints === 100 ? gameState.stats.unshift(`correct`) : gameState.stats.unshift(`wrong`);
     };
 
 
-    if (arr.length > 1) {
-      updateStateAnswers();
+    if (screenAnswers.length > 1) {
+      updateStats();
 
       gameState.currentScreen++;
       changeView(nextGameScreen);

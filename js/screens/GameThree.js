@@ -18,25 +18,21 @@ export default () => {
     renderScreen(introScreen());
   };
 
-  let arr = [];
+  const screenAnswers = [];
 
   gameThreeScreen.onAnswerClick = (e) => {
     const {
       type: nextGameScreen
     } = gameState.screens[gameState.currentScreen];
 
-    const answer = {
-      time: 30
-    };
+    const success = e.target.value && gameThreeScreen.options[0].type;
 
-    if (e.target.value === gameThreeScreen.options[0].type) {
-      answer.success = true;
-    } else {
-      answer.success = false;
-    }
-    arr.push(answer);
+    screenAnswers.push({
+      time: 30,
+      success
+    });
 
-    const screenAnswersPoints = arr.map((it) => getPointsFromAnswer(it));
+    const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer));
 
     const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
       return sum + answerPoints;
@@ -48,7 +44,7 @@ export default () => {
     };
 
 
-    if (arr.length > 0) {
+    if (screenAnswers.length > 0) {
       updateStateAnswers();
 
       gameState.currentScreen++;

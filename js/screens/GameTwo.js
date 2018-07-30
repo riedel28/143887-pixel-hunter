@@ -16,28 +16,32 @@ export default () => {
     renderScreen(introScreen());
   };
 
-  let arr = [];
+  const screenAnswers = [];
 
   gameTwoScreen.onAnswerClick = (e) => {
     const {
       type: nextGameScreen
     } = gameState.screens[gameState.currentScreen];
 
-    const answer = {
-      time: 30
-    };
+    // const answer = {
+    //   time: 30
+    // };
 
-    if (e.target.value === gameTwoScreen.options[0].type) {
-      answer.success = true;
-    } else {
-      answer.success = false;
-    }
-    arr.push(answer);
+    // if (e.target.value === gameTwoScreen.options[0].type) {
+    //   answer.success = true;
+    // } else {
+    //   answer.success = false;
+    // }
+    // arr.push(answer);
+    const success = e.target.value && gameTwoScreen.options[0].type;
 
-    const screenAnswersPoints = arr.map((it) => getPointsFromAnswer(it));
 
+    screenAnswers.push({
+      time: 30,
+      success
+    });
 
-    // console.log(arr);
+    const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer));
 
     const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
       return sum + answerPoints;
@@ -48,9 +52,7 @@ export default () => {
       return sumAllAnswersPoints === 100 ? gameState.stats.unshift(`correct`) : gameState.stats.unshift(`wrong`);
     };
 
-
-    arr.push(e.target.value);
-    if (arr.length > 0) {
+    if (screenAnswers.length > 0) {
 
       updateStateAnswers();
 
