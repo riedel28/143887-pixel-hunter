@@ -46,8 +46,8 @@ export default () => {
     }, 0);
 
     const updateStateAnswers = () => {
-      gameState.answers.pop();
-      return sumAllAnswersPoints === 100 ? gameState.answers.unshift(`correct`) : gameState.answers.unshift(`wrong`);
+      gameState.stats.pop();
+      return sumAllAnswersPoints === 100 ? gameState.stats.unshift(`correct`) : gameState.stats.unshift(`wrong`);
     };
 
 
