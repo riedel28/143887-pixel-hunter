@@ -25,7 +25,7 @@ export default () => {
       type: nextGameScreen
     } = gameState.screens[gameState.currentScreen];
 
-    const success = e.target.value && gameThreeScreen.options[0].type;
+    const success = e.target.value === gameThreeScreen.options[0].type;
 
     screenAnswers.push({
       time: 30,
@@ -34,18 +34,26 @@ export default () => {
 
     const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer));
 
-    const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
-      return sum + answerPoints;
+    const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerObj) => {
+      return sum + answerObj.success;
     }, 0);
 
-    const updateStateAnswers = () => {
+    const updateStats = () => {
       gameState.stats.pop();
-      return sumAllAnswersPoints === 100 ? gameState.stats.unshift(`correct`) : gameState.stats.unshift(`wrong`);
+      return sumAllAnswersPoints === 100 ? gameState.stats.unshift({
+        time: 30,
+        success: true,
+        answer: `correct`
+      }) : gameState.stats.unshift({
+        time: 30,
+        success: false,
+        answer: `wrong`
+      });
     };
 
 
     if (screenAnswers.length > 0) {
-      updateStateAnswers();
+      // updateStats();
 
       gameState.currentScreen++;
 

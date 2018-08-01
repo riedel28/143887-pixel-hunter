@@ -10,6 +10,7 @@ import {
 
 import introScreen from "./Intro";
 
+
 export default () => {
   const gameOneScreen = new GameOneView(gameState);
 
@@ -24,41 +25,79 @@ export default () => {
       type: nextGameScreen
     } = gameState.screens[gameState.currentScreen];
 
+    const success = e.target.value === gameOneScreen.options[0].type;
 
-    // const answer = {
-    //   time: 30
-    // };
-
-
-    // if (e.target.value === gameOneScreen.options[0].type) {
-    //   answer.success === true;
-    // } else {
-    //   answer.success = false;
-    // }
-
-    // const success = e.target.value === gameOneScreen.options[0].type ? true : false;
-
-    const success = e.target.value && gameOneScreen.options[0].type;
-
+    console.log(e.target.value);
+    console.log(gameOneScreen.options[0].type);
 
     screenAnswers.push({
       time: 30,
       success
     });
 
-    // console.dir(screenAnswers);
-
-    const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer));
-
-    const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerPoints) => {
-      return sum + answerPoints;
+    const sumScreenAnswers = screenAnswers.reduce((sum, answer) => {
+      return sum + getPointsFromAnswer(answer);
     }, 0);
 
+    const isCorrect = sumScreenAnswers === 100;
+
+    console.log(screenAnswers);
+    console.log(sumScreenAnswers);
+    console.log(isCorrect);
+
+    // const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer)).reduce((sum, answerObj) => {
+    //   console.log(answerObj);
+    //   return sum + answerObj.time;
+    // }, 0);
+
+    // console.log(screenAnswersPoints);
+
+    // const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerObj) => {
+    //   console.log(answerObj);
+    //   return sum + answerObj.success;
+    // }, 0);
+
+    // console.log(sumAllAnswersPoints);
+
+    // const isCorrect = sumAllAnswersPoints === 0
+
+
     const updateStats = () => {
-      gameState.stats.pop();
-      return sumAllAnswersPoints === 100 ? gameState.stats.unshift(`correct`) : gameState.stats.unshift(`wrong`);
+      if (isCorrect) {
+        gameState.stats.unshift({
+          time: 30,
+          success: true,
+          answer: `correct`
+        });
+      } else {
+        gameState.stats.unshift({
+          time: 30,
+          success: false,
+          answer: `wrong`
+        });
+      }
+
+      console.log(gameState.stats);
+      // gameState.stats.pop();
+
+      // if (sum === 100) {
+      //   gameState.stats.unshift({
+      //     time: 30,
+      //     success: true,
+      //     answer: `correct`
+      //   });
+      // } else {
+      //   gameState.stats.unshift({
+      //     time: 30,
+      //     success: false,
+      //     answer: `wrong`
+      //   });
+      // }
     };
 
+    // console.log(gameState.stats);
+
+    // console.log(screenAnswers);
 
     if (screenAnswers.length > 1) {
       updateStats();

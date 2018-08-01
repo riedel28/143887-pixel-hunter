@@ -25,7 +25,7 @@ const getRandomPainting = () => {
   const src = images.paintings[Math.floor(Math.random() * images.paintings.length)];
 
   return {
-    type: `painting`,
+    type: `paint`,
     src
   };
 };
