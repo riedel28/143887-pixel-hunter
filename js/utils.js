@@ -1,4 +1,9 @@
-import state from "./data/state";
+// import state from "./data/state";
+
+import gameOneScreen from "./screens/GameOne";
+import gameTwoScreen from "./screens/GameTwo";
+import gameThreeScreen from "./screens/GameThree";
+
 
 const getElementFromTemplate = (markup) => {
   const element = document.createElement(`div`);
@@ -6,7 +11,9 @@ const getElementFromTemplate = (markup) => {
   return element;
 };
 
-export {getElementFromTemplate};
+export {
+  getElementFromTemplate
+};
 
 const removeEventHandlers = (handlers, renderFunction) => {
   handlers.forEach((handler) => {
@@ -15,19 +22,42 @@ const removeEventHandlers = (handlers, renderFunction) => {
   renderFunction();
 };
 
-export {removeEventHandlers};
+export {
+  removeEventHandlers
+};
 
-const renderScreen = (screen) => {
+export const renderScreen = (screen) => {
   const mainScreen = document.querySelector(`.central`);
 
   mainScreen.innerHTML = ``;
-  mainScreen.appendChild(screen);
+  mainScreen.appendChild(screen.element);
 };
 
-export {renderScreen};
+// const screenTypes = {
+//   [`one-of-two`]: 0,
+//   [`tinder-like`]: 1,
+//   [`one-of-three`]: 2
+// };
 
-const getPointsFromAnswer = (answer) => {
-  const {time, success} = answer;
+export const changeView = (screenType) => {
+  switch (screenType) {
+    case `one-of-two`:
+      renderScreen(gameOneScreen());
+      break;
+    case `tinder-like`:
+      renderScreen(gameTwoScreen());
+      break;
+    case `one-of-three`:
+      renderScreen(gameThreeScreen());
+      break;
+  }
+};
+
+export const getPointsFromAnswer = (answer) => {
+  const {
+    time,
+    success
+  } = answer;
 
   if (success === false) {
     return 0;
@@ -44,7 +74,46 @@ const getPointsFromAnswer = (answer) => {
   }
 };
 
-const getTotalScore = (answers, lives) => {
+export const getGameScore = (answers) => {
+  return answers.reduce((total, answer) => {
+    if (typeof answer === `object`) {
+      return total + answer.score;
+    }
+
+    return total + 0;
+  }, 0);
+};
+export const getCorrectAnswers = (answers) => {
+  const correctAnswers = answers.filter((answer) => answer.answer === `correct`);
+
+  return correctAnswers;
+};
+
+export const getFastAnswerScore = (answers) => {
+  const fastAnswers = answers.filter((answer) => answer.time > 20);
+
+  // return fastAnswers.reduce((sum, value) => {
+  //   return sum + value;
+  // }, 0);
+  return fastAnswers;
+};
+
+export const getSlowAnswers = (answers) => {
+  const slowAnswers = answers.filter((answer) => answer.time < 10);
+
+  // return slowAnswers.reduce((sum, value) => {
+  //   return sum + value;
+  // }, 0);
+  return slowAnswers;
+};
+
+// export const getGameScore = (...scores) => {
+//   return scores.reduce((total, score) => {
+//     return total + score.
+//   }, 0)
+// };
+
+export const getTotalScore = (answers, lives) => {
   if (answers.length < 10) {
     return -1;
   }
@@ -60,7 +129,6 @@ const getTotalScore = (answers, lives) => {
   return totalScore;
 };
 
-export {getTotalScore};
 
 const getTimer = (timer) => {
   return {
@@ -77,15 +145,19 @@ const getTimer = (timer) => {
   };
 };
 
-export {getTimer};
-
-const randomizeAnswers = () => {
-  return state.answersTypes[
-      Math.floor(Math.random() * state.answersTypes.length)
-  ];
+export {
+  getTimer
 };
 
-export {randomizeAnswers};
+// const randomizeAnswers = () => {
+//   return state.answersTypes[
+//       Math.floor(Math.random() * state.answersTypes.length)
+//   ];
+// };
+
+// export {
+//   randomizeAnswers
+// };
 
 // const displayRandomAnswers = state.answers.map(() => {
 //   return `<li class="stats__result stats__result--${randomizeAnswers()}"></li>`;

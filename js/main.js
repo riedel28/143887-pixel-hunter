@@ -1,5 +1,7 @@
-import {renderScreen} from "./utils";
+import {
+  renderScreen
+} from "./utils";
+import introScreen from "./screens/Intro";
 
-import intro from "./Intro";
 
-renderScreen(intro());
+renderScreen(introScreen());
