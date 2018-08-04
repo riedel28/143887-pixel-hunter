@@ -1,8 +1,6 @@
 export default (state) => {
-  const answers = state.stats.map(({
-    answer
-  }) => {
-    return `<li class="stats__result stats__result--${answer}"></li>`;
+  const answers = state.stats.map((answer) => {
+    return `<li class="stats__result stats__result--${answer.answer}"></li>`;
   });
 
   return `<ul class="stats">

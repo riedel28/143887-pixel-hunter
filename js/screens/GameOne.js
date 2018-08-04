@@ -43,7 +43,6 @@ export default () => {
 
     console.log(screenAnswers);
     console.log(sumScreenAnswers);
-    console.log(isCorrect);
 
     // const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer)).reduce((sum, answerObj) => {
     //   console.log(answerObj);
@@ -63,36 +62,30 @@ export default () => {
 
 
     const updateStats = () => {
+      const {
+        stats,
+        currentScreen
+      } = gameState;
+
+      const index = stats.indexOf(currentScreen);
+
       if (isCorrect) {
         gameState.stats.unshift({
           time: 30,
           success: true,
           answer: `correct`
         });
+        gameState.stats.pop(index);
       } else {
         gameState.stats.unshift({
           time: 30,
           success: false,
           answer: `wrong`
         });
+        gameState.stats.pop(index);
       }
 
       console.log(gameState.stats);
-      // gameState.stats.pop();
-
-      // if (sum === 100) {
-      //   gameState.stats.unshift({
-      //     time: 30,
-      //     success: true,
-      //     answer: `correct`
-      //   });
-      // } else {
-      //   gameState.stats.unshift({
-      //     time: 30,
-      //     success: false,
-      //     answer: `wrong`
-      //   });
-      // }
     };
 
     // console.log(gameState.stats);

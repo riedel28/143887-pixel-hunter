@@ -30,28 +30,47 @@ export default () => {
       success
     });
 
-    const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer));
-
-    const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerObj) => {
-      return sum + answerObj.success;
+    const sumScreenAnswers = screenAnswers.reduce((sum, answer) => {
+      return sum + getPointsFromAnswer(answer);
     }, 0);
 
+    const isCorrect = sumScreenAnswers === 100;
+
+    console.log(screenAnswers);
+    console.log(sumScreenAnswers);
+    // console.log(isCorrect);
+
+
     const updateStats = () => {
-      gameState.stats.pop();
-      return sumAllAnswersPoints === 100 ? gameState.stats.unshift({
-        time: 30,
-        success: true,
-        answer: `correct`
-      }) : gameState.stats.unshift({
-        time: 30,
-        success: false,
-        answer: `wrong`
-      });
+      const {
+        stats,
+        currentScreen
+      } = gameState;
+
+      const index = stats.indexOf(currentScreen);
+
+      if (isCorrect) {
+        gameState.stats.unshift({
+          time: 30,
+          success: true,
+          answer: `correct`
+        });
+        gameState.stats.pop(index);
+      } else {
+        gameState.stats.unshift({
+          time: 30,
+          success: false,
+          answer: `wrong`
+        });
+        gameState.stats.pop(index);
+      }
+
+      console.log(gameState.stats);
     };
 
     if (screenAnswers.length > 0) {
 
-      // updateStats();
+      updateStats();
 
       gameState.currentScreen++;
       changeView(nextGameScreen);
