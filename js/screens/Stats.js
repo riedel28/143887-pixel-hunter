@@ -113,28 +113,17 @@
 // };
 
 import {
-  renderScreen,
-  getTotalScore
+  renderScreen
 } from "./../utils";
 import StatsView from "./../views/StatsView";
 
 import introScreen from "./Intro";
 import {
   gameState
-} from "../data/state";
+} from "./../data/state";
 
 export default () => {
   const statsScreen = new StatsView(gameState);
-
-  const {
-    stats,
-    lives
-  } = gameState;
-
-  // console.log(stats);
-  // console.log(getTotalScore(stats, lives));
-  // console.log(gameState.stats);
-
 
   statsScreen.onArrowBackClick = () => {
     renderScreen(introScreen());

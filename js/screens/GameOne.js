@@ -27,9 +27,6 @@ export default () => {
 
     const success = e.target.value === gameOneScreen.options[0].type;
 
-    console.log(e.target.value);
-    console.log(gameOneScreen.options[0].type);
-
     screenAnswers.push({
       time: 30,
       success
@@ -39,27 +36,9 @@ export default () => {
       return sum + getPointsFromAnswer(answer);
     }, 0);
 
-    const isCorrect = sumScreenAnswers === 100;
+    const isCorrect = sumScreenAnswers === 100 ? `correct` : `wrong`;
 
-    console.log(screenAnswers);
-    console.log(sumScreenAnswers);
-
-    // const screenAnswersPoints = screenAnswers.map((answer) => getPointsFromAnswer(answer)).reduce((sum, answerObj) => {
-    //   console.log(answerObj);
-    //   return sum + answerObj.time;
-    // }, 0);
-
-    // console.log(screenAnswersPoints);
-
-    // const sumAllAnswersPoints = screenAnswersPoints.reduce((sum, answerObj) => {
-    //   console.log(answerObj);
-    //   return sum + answerObj.success;
-    // }, 0);
-
-    // console.log(sumAllAnswersPoints);
-
-    // const isCorrect = sumAllAnswersPoints === 0
-
+    const score = sumScreenAnswers;
 
     const updateStats = () => {
       const {
@@ -69,28 +48,26 @@ export default () => {
 
       const index = stats.indexOf(currentScreen);
 
-      if (isCorrect) {
+      if (score) {
+        gameState.stats.pop(index);
         gameState.stats.unshift({
           time: 30,
           success: true,
-          answer: `correct`
+          answer: isCorrect,
+          score
         });
-        gameState.stats.pop(index);
+
       } else {
+        gameState.stats.pop(index);
         gameState.stats.unshift({
           time: 30,
           success: false,
-          answer: `wrong`
+          answer: isCorrect,
+          score
         });
-        gameState.stats.pop(index);
+
       }
-
-      console.log(gameState.stats);
     };
-
-    // console.log(gameState.stats);
-
-    // console.log(screenAnswers);
 
     if (screenAnswers.length > 1) {
       updateStats();

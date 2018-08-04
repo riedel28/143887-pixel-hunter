@@ -3,9 +3,20 @@ import statsBarTemplate from "../templates/StatsBar";
 import AbstractView from "./AbstractView";
 import {
   gameState
-} from "../data/state";
+} from "./../data/state";
+// import {
+//   getGameScore
+// } from "./../utils";
 
-export default class IntroView extends AbstractView {
+
+export default class StatsView extends AbstractView {
+  constructor(state) {
+    super();
+    this.stats = state.stats;
+    this.lives = state.lives;
+  }
+
+
   get template() {
     return `<header class="header">
     <div class="header__back">
@@ -24,28 +35,28 @@ export default class IntroView extends AbstractView {
           ${statsBarTemplate(gameState)}
         </td>
         <td class="result__points">×&nbsp;100</td>
-        <td class="result__total">900</td>
+        <td class="result__total">950</td>
       </tr>
       <tr>
         <td></td>
         <td class="result__extra">Бонус за скорость:</td>
-        <td class="result__extra">1&nbsp;<span class="stats__result stats__result--fast"></span></td>
+  <td class="result__extra">0<span class="stats__result stats__result--fast"></span></td>
         <td class="result__points">×&nbsp;50</td>
-        <td class="result__total">50</td>
+        <td class="result__total">0</td>
       </tr>
       <tr>
         <td></td>
         <td class="result__extra">Бонус за жизни:</td>
-        <td class="result__extra">2&nbsp;<span class="stats__result stats__result--alive"></span></td>
+        <td class="result__extra">0<span class="stats__result stats__result--alive"></span></td>
         <td class="result__points">×&nbsp;50</td>
-        <td class="result__total">100</td>
+        <td class="result__total">0</td>
       </tr>
       <tr>
         <td></td>
         <td class="result__extra">Штраф за медлительность:</td>
-        <td class="result__extra">2&nbsp;<span class="stats__result stats__result--slow"></span></td>
+  <td class="result__extra">0<span class="stats__result stats__result--slow"></span></td>
         <td class="result__points">×&nbsp;50</td>
-        <td class="result__total">-100</td>
+        <td class="result__total">0</td>
       </tr>
       <tr>
         <td colspan="5" class="result__total  result__total--final">950</td>
@@ -78,7 +89,7 @@ export default class IntroView extends AbstractView {
         <td class="result__total">100</td>
       </tr>
       <tr>
-        <td colspan="5" class="result__total  result__total--final">950</td>
+        <td colspan="5" class="result__total  result__total--final">k</td>
       </tr>
     </table>
   </div>
@@ -87,10 +98,8 @@ export default class IntroView extends AbstractView {
   }
 
   bindHandlers() {
-    // const game1 = getGame1(currentScreenState);
     const arrowBack = this.element.querySelector(`.header__back`);
 
-    // form.addEventListener(`click`, this.onFormClick);
     arrowBack.addEventListener(`click`, this.onArrowBackClick);
   }
 

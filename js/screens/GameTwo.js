@@ -34,12 +34,9 @@ export default () => {
       return sum + getPointsFromAnswer(answer);
     }, 0);
 
-    const isCorrect = sumScreenAnswers === 100;
+    const isCorrect = sumScreenAnswers === 100 ? `correct` : `wrong`;
 
-    console.log(screenAnswers);
-    console.log(sumScreenAnswers);
-    // console.log(isCorrect);
-
+    const score = sumScreenAnswers;
 
     const updateStats = () => {
       const {
@@ -49,27 +46,26 @@ export default () => {
 
       const index = stats.indexOf(currentScreen);
 
-      if (isCorrect) {
+      if (score) {
         gameState.stats.unshift({
           time: 30,
           success: true,
-          answer: `correct`
+          answer: isCorrect,
+          score
         });
         gameState.stats.pop(index);
       } else {
         gameState.stats.unshift({
           time: 30,
           success: false,
-          answer: `wrong`
+          answer: isCorrect,
+          score
         });
         gameState.stats.pop(index);
       }
-
-      console.log(gameState.stats);
     };
 
     if (screenAnswers.length > 0) {
-
       updateStats();
 
       gameState.currentScreen++;

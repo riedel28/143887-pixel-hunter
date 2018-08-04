@@ -39,7 +39,7 @@ export const generateGameScreens = (length) => {
 export const gameState = {
   currentScreen: 0,
   time: 30,
-  lives: 2,
+  lives: 3,
   stats: [`unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`, `unknown`],
   screens: [{
     type: `one-of-two`,

@@ -74,6 +74,45 @@ export const getPointsFromAnswer = (answer) => {
   }
 };
 
+export const getGameScore = (answers) => {
+  return answers.reduce((total, answer) => {
+    if (typeof answer === `object`) {
+      return total + answer.score;
+    }
+
+    return total + 0;
+  }, 0);
+};
+export const getCorrectAnswers = (answers) => {
+  const correctAnswers = answers.filter((answer) => answer.answer === `correct`);
+
+  return correctAnswers;
+};
+
+export const getFastAnswerScore = (answers) => {
+  const fastAnswers = answers.filter((answer) => answer.time > 20);
+
+  // return fastAnswers.reduce((sum, value) => {
+  //   return sum + value;
+  // }, 0);
+  return fastAnswers;
+};
+
+export const getSlowAnswers = (answers) => {
+  const slowAnswers = answers.filter((answer) => answer.time < 10);
+
+  // return slowAnswers.reduce((sum, value) => {
+  //   return sum + value;
+  // }, 0);
+  return slowAnswers;
+};
+
+// export const getGameScore = (...scores) => {
+//   return scores.reduce((total, score) => {
+//     return total + score.
+//   }, 0)
+// };
+
 export const getTotalScore = (answers, lives) => {
   if (answers.length < 10) {
     return -1;
